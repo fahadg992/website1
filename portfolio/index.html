@@ -265,9 +265,10 @@
     #mobile-menu {
       position: fixed;
       inset: 0;
-      z-index: 99;
+      z-index: 9999;
       background: rgba(8, 8, 8, 0.98);
       backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -294,17 +295,29 @@
 
     #mobile-close {
       position: absolute;
-      top: 20px;
+      top: 24px;
       right: 24px;
-      background: none;
-      border: none;
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
       cursor: pointer;
-      color: rgba(255, 255, 255, 0.5);
-      transition: color 0.2s;
+      color: #F5F5F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      pointer-events: auto;
+      transition: background 0.2s, transform 0.2s, color 0.2s, border-color 0.2s;
     }
 
-    #mobile-close:hover {
-      color: #fff;
+    #mobile-close:hover,
+    #mobile-close:active {
+      background: rgba(200, 169, 110, 0.22);
+      border-color: rgba(200, 169, 110, 0.45);
+      color: #C8A96E;
+      transform: scale(1.08);
     }
 
     /* ── FIXED BACKGROUND PORTRAIT (stays during scroll & blurs) ── */
@@ -725,27 +738,49 @@
     }
 
     .projects-slider {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(330px, 1fr));
+      display: flex;
       gap: 22px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding-bottom: 4px;
+      padding-bottom: 8px;
+      scroll-behavior: smooth;
     }
 
     .projects-slider::-webkit-scrollbar {
       display: none;
     }
 
-    @media (max-width: 768px) {
-      .projects-slider {
-        grid-template-columns: repeat(3, 86vw);
-      }
+    .slider-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .slider-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .slider-btn:hover {
+      background: rgba(200, 169, 110, 0.2);
+      border-color: #C8A96E;
+      color: #C8A96E;
+      transform: scale(1.05);
     }
 
     .project-card {
+      flex: 0 0 360px;
       scroll-snap-align: start;
       background: #181818;
       border: 1px solid rgba(255, 255, 255, 0.068);
@@ -753,6 +788,12 @@
       overflow: hidden;
       transition: border-color 0.3s, transform 0.35s;
       cursor: default;
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        flex: 0 0 85vw;
+      }
     }
 
     .project-card:hover {
@@ -961,16 +1002,69 @@
 
     @media (max-width: 768px) {
       .timeline-spine {
-        left: 18px;
+        left: 14px;
       }
 
       .timeline-entry {
-        grid-template-columns: 0 36px 1fr;
-        gap: 0 16px;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        padding-left: 38px !important;
+        margin-bottom: 30px !important;
+        gap: 2px !important;
       }
 
-      .tl-left {
-        display: none;
+      .timeline-entry .tl-center {
+        position: absolute !important;
+        left: 7px !important;
+        top: 4px !important;
+        padding-top: 0 !important;
+      }
+
+      .timeline-entry .tl-left,
+      .timeline-entry .tl-right {
+        display: block !important;
+        text-align: left !important;
+        width: 100% !important;
+      }
+
+      .timeline-entry.even .tl-left {
+        order: 2 !important;
+      }
+
+      .timeline-entry.even .tl-right {
+        order: 1 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .timeline-entry.odd .tl-left {
+        order: 1 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .timeline-entry.odd .tl-right {
+        order: 2 !important;
+      }
+
+      .tl-org {
+        text-align: left !important;
+      }
+
+      .tl-desc {
+        text-align: left !important;
+        font-size: 13px !important;
+      }
+
+      .tl-year {
+        font-size: 24px !important;
+        display: inline-block !important;
+        margin-right: 8px !important;
+      }
+
+      .tl-badge {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        margin-top: 0 !important;
       }
     }
 
@@ -1024,13 +1118,41 @@
       filter: grayscale(75%);
     }
 
+    .testi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 14px;
+      margin-bottom: 2px;
+      gap: 10px;
+    }
+
+    .testi-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0A66C2;
+      color: #ffffff;
+      text-decoration: none;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(10, 102, 194, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    }
+
+    .testi-linkedin:hover {
+      transform: translateY(-2px) scale(1.12);
+      box-shadow: 0 4px 14px rgba(10, 102, 194, 0.6);
+      filter: brightness(1.15);
+    }
+
     .testi-name {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 15px;
       font-weight: 700;
       color: #F0F0F0;
-      margin-top: 14px;
-      margin-bottom: 2px;
     }
 
     .testi-title {
@@ -1479,8 +1601,17 @@
           <span class="section-label">Portfolio</span>
           <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
         </div>
-        <p class="section-sub" style="max-width:300px;">Real-world systems delivered across manufacturing, motion
-          control, and AI perception.</p>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+          <p class="section-sub" style="max-width:300px;text-align:right;">Real-world systems delivered across manufacturing, motion control, and AI perception.</p>
+          <div class="slider-controls" aria-label="Project slide navigation">
+            <button class="slider-btn" id="proj-prev" aria-label="Previous project">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="slider-btn" id="proj-next" aria-label="Next project">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="projects-slider reveal" role="list" aria-label="Featured projects">
@@ -1572,6 +1703,93 @@
           </div>
         </article>
 
+        <!-- Project 4 (Duplicate of 1 for seamless infinite sliding) -->
+        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
+              alt="Industrial robotic arm in factory automation setting" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Robotics &amp; SCADA">Robotics &amp; SCADA</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Robotics &amp; SCADA</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">Autonomous Robotic Painting Cell</h3>
+            <p class="proj-desc">Dobot CR10A cobot integration with Ignition SCADA for plant-wide manufacturing
+              automation and real-time process monitoring.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Autonomous Robotic Painting Cell">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 (Duplicate of 2) -->
+        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
+              alt="Complex industrial motion control machinery" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Motion Control">Motion Control</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Motion Control</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">12-Axis Motion Platform</h3>
+            <p class="proj-desc">Split-panel electrical architecture and FSoE safety implementation for industrial X-ray
+              scanning and non-destructive testing.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for 12-Axis Motion Platform">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 (Duplicate of 3) -->
+        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
+              alt="Computer vision and AI edge computing setup" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Perception &amp; AI">Perception &amp; AI</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Perception &amp; AI</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">Real-Time Vision Pipeline</h3>
+            <p class="proj-desc">Edge deployment utilising YOLO, OpenVINO FP16, and asyncua OPC UA on Windows IoT for
+              live industrial inspection at line speed.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Real-Time Vision Pipeline">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
 
       <div style="display:flex;align-items:center;gap:10px;margin-top:18px;" class="reveal" aria-hidden="true">
@@ -1600,7 +1818,7 @@
         <div class="timeline-spine" aria-hidden="true"></div>
 
         <!-- Entry 1 -->
-        <div class="timeline-entry reveal" role="listitem">
+        <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-year">2025</div>
             <div class="tl-badge">Present</div>
@@ -1617,7 +1835,7 @@
         </div>
 
         <!-- Entry 2 -->
-        <div class="timeline-entry reveal" role="listitem">
+        <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-role">Research Engineer</div>
             <div class="tl-org" style="text-align:right;">Advanced Manufacturing Research Centre</div>
@@ -1634,7 +1852,7 @@
         </div>
 
         <!-- Entry 3 -->
-        <div class="timeline-entry reveal" role="listitem">
+        <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-year">2022</div>
           </div>
@@ -1650,7 +1868,7 @@
         </div>
 
         <!-- Entry 4 -->
-        <div class="timeline-entry reveal" role="listitem">
+        <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-role">Graduate Engineer</div>
             <div class="tl-org" style="text-align:right;">Embedded Systems &amp; Robotics</div>
@@ -1666,7 +1884,7 @@
         </div>
 
         <!-- Entry 5 -->
-        <div class="timeline-entry reveal" role="listitem">
+        <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-year">2016</div>
           </div>
@@ -1702,7 +1920,14 @@
           <img class="testi-avatar"
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
             alt="Dr. James Hartley" loading="lazy" />
-          <div class="testi-name">Dr. James Hartley</div>
+          <div class="testi-header">
+            <div class="testi-name">Dr. James Hartley</div>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Dr. James Hartley">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+              </svg>
+            </a>
+          </div>
           <div class="testi-title">Principal Research Engineer &middot; AMRC</div>
           <blockquote class="testi-quote">
             "Fahad brings a rare combination of deep theoretical knowledge and practical engineering instinct. His work
@@ -1714,7 +1939,14 @@
           <img class="testi-avatar"
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
             alt="Dr. Sarah Okafor" loading="lazy" />
-          <div class="testi-name">Dr. Sarah Okafor</div>
+          <div class="testi-header">
+            <div class="testi-name">Dr. Sarah Okafor</div>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Dr. Sarah Okafor">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+              </svg>
+            </a>
+          </div>
           <div class="testi-title">Senior Lecturer in Robotics &middot; Sheffield</div>
           <blockquote class="testi-quote">
             "One of the most technically versatile engineers I've supervised — his vision pipeline project was
@@ -1726,7 +1958,14 @@
           <img class="testi-avatar"
             src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
             alt="Marcus Webb" loading="lazy" />
-          <div class="testi-name">Marcus Webb</div>
+          <div class="testi-header">
+            <div class="testi-name">Marcus Webb</div>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Marcus Webb">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+              </svg>
+            </a>
+          </div>
           <div class="testi-title">Manufacturing Director &middot; KTP Partner</div>
           <blockquote class="testi-quote">
             "Fahad transformed our painting cell from manual operation to a fully integrated autonomous system. ROI was
@@ -1888,15 +2127,81 @@
       menuBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
-    function closeMenu() {
+    function closeMenu(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       mobileMenu.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
     menuBtn.addEventListener('click', openMenu);
     mobileClose.addEventListener('click', closeMenu);
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    mobileClose.addEventListener('touchend', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // ─── Projects Auto-Slide to the Right
+    const projSlider = document.querySelector('.projects-slider');
+    const projPrevBtn = document.getElementById('proj-prev');
+    const projNextBtn = document.getElementById('proj-next');
+    let isProjPaused = false;
+
+    function getProjectStep() {
+      const card = projSlider ? projSlider.querySelector('.project-card') : null;
+      return card ? card.offsetWidth + 22 : 380;
+    }
+
+    function slideProjectsRight() {
+      if (!projSlider || isProjPaused) return;
+      const step = getProjectStep();
+      if (projSlider.scrollLeft + projSlider.clientWidth >= projSlider.scrollWidth - 30) {
+        projSlider.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        projSlider.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }
+
+    function slideProjectsLeft() {
+      if (!projSlider) return;
+      const step = getProjectStep();
+      if (projSlider.scrollLeft <= 15) {
+        projSlider.scrollTo({ left: projSlider.scrollWidth, behavior: 'smooth' });
+      } else {
+        projSlider.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    }
+
+    // Automatically slide to the right every 3.2 seconds
+    setInterval(slideProjectsRight, 3200);
+
+    if (projNextBtn) {
+      projNextBtn.addEventListener('click', () => {
+        isProjPaused = true;
+        slideProjectsRight();
+        setTimeout(() => isProjPaused = false, 4000);
+      });
+    }
+
+    if (projPrevBtn) {
+      projPrevBtn.addEventListener('click', () => {
+        isProjPaused = true;
+        slideProjectsLeft();
+        setTimeout(() => isProjPaused = false, 4000);
+      });
+    }
+
+    if (projSlider) {
+      projSlider.addEventListener('mouseenter', () => isProjPaused = true);
+      projSlider.addEventListener('mouseleave', () => isProjPaused = false);
+      projSlider.addEventListener('touchstart', () => isProjPaused = true, { passive: true });
+      projSlider.addEventListener('touchend', () => {
+        setTimeout(() => isProjPaused = false, 3000);
+      }, { passive: true });
+    }
 
     // ─── Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
