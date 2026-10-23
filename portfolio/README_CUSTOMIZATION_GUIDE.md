@@ -84,12 +84,64 @@ Search for: `<!-- ═══════ HERO ═══════ -->` (~Line 1
   ```
 - **Hero Bio / Subtitle**: Edit text inside `<p class="hero-sub">...</p>`.
 
-### Hero Portrait Photo:
-Look for:
+### Hero Portrait Photo & Position Controls:
+The portrait photo stays fixed in the background while scrolling and smoothly blurs. It is rendered around **Line 1347**:
 ```html
-<img src="../my photo.jpg" alt="Fahad Sutary - Robotics &amp; Automation Engineer" ... />
+<div id="fixed-bg-portrait" aria-hidden="true">
+  <div class="portrait-inner">
+    <img id="fixed-bg-img" src="my%20photo.jpg" onerror="this.onerror=null;this.src='../my%20photo.jpg';" alt="Fahad Portrait" role="presentation" loading="eager" />
+  </div>
+</div>
 ```
-- To change the picture, replace `my photo.jpg` in the root folder or update the `src` attribute.
+
+#### 1. How to Change the Photo File:
+- Replace `my photo.jpg` located directly in `c:\Users\ASUS\Desktop\website\` (or place a new image in `portfolio/` and update `src="your-photo-name.jpg"`).
+
+#### 2. How to Control the Position of the Photo:
+You can adjust the position and alignment in the CSS under `/* ── FIXED BACKGROUND PORTRAIT ── */` around **Lines 324–363**:
+
+- **Shift Horizontally or Vertically Inside Frame**:
+  In `#fixed-bg-img` (around line 358):
+  ```css
+  #fixed-bg-img {
+    object-position: center top; /* Change to: center center, 60% 20%, right top, etc. */
+  }
+  ```
+  - `center top`: Aligns image to the top (shows your head & shoulders).
+  - `50% 30%`: Exact percentage control (horizontal% vertical%).
+
+- **Move the Entire Portrait Frame (Left/Right/Size)**:
+  In `#fixed-bg-portrait` (around lines 324–337):
+  ```css
+  #fixed-bg-portrait {
+    position: fixed;
+    top: 0;
+    right: 0;           /* Change to right: 5% or right: -50px to nudge right/left */
+    width: 50vw;        /* Width of the portrait column (e.g. 45vw or 55vw) */
+    max-width: 620px;   /* Maximum width on large monitors */
+    height: 100vh;
+  }
+  ```
+
+- **Height & Vertical Centering**:
+  In `.portrait-inner` (around lines 339–352):
+  ```css
+  .portrait-inner {
+    height: 85vh;       /* Height of photo frame */
+    max-height: 680px;  /* Increase/decrease to make the frame taller or shorter */
+  }
+  ```
+
+- **Mobile View Position**:
+  Around line 364 (`@media (max-width: 900px)`):
+  ```css
+  @media (max-width: 900px) {
+    #fixed-bg-portrait {
+      width: 100vw;
+      opacity: 0.35;    /* Adjust background transparency on phones */
+    }
+  }
+  ```
 
 ### Hero Stats Counters:
 Look for `.hero-stat`:
@@ -176,9 +228,27 @@ The project carousel uses an automatic infinite loop: Cards 1, 2, and 3 are repe
 </article>
 ```
 
+### How to Change a Project Photo:
+Inside `.proj-img-box`, look for the `<img>` tag:
+```html
+<div class="proj-img-box">
+  <img class="proj-img" src="IMAGE_URL_OR_PATH" alt="Project Name" loading="lazy" />
+  <div class="proj-pill">Category / Tag</div>
+</div>
+```
+
+You have two options for project photos:
+1. **Using a Local File**:
+   - Save your image inside the `portfolio/` folder (or create an `images/` subfolder, e.g., `portfolio/images/mdp2.jpg`).
+   - Change `src="..."` to: `src="images/mdp2.jpg"` or `src="mdp2.jpg"`.
+2. **Using an Online Image**:
+   - Paste the direct web image URL into `src="..."`.
+3. **IMPORTANT for the Slider**:
+   - Because the slider is an infinite loop, always update the `src="..."` on **both** the original card and its duplicate card (e.g. Card 1 and Card 4).
+
 ### How to Edit an Existing Project:
-1. Find Card 1 (e.g. `MDP2`) and update the title, year, category, and description.
-2. Update the duplicate Card 4 with the **exact same text** so the loop remains seamless.
+1. Find Card 1 (e.g. `MDP2`) and update the photo `src`, title, year, category, and description.
+2. Update the duplicate Card 4 with the **exact same photo and text** so the loop remains seamless.
 3. Repeat the same for Card 2 & 5, or Card 3 & 6.
 
 ### How to Add a New Project:
