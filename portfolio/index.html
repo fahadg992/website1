@@ -1346,7 +1346,8 @@
   <!-- ═══════ FIXED BACKGROUND PORTRAIT (Stays during scroll with blur effect) ═══════ -->
   <div id="fixed-bg-portrait" aria-hidden="true">
     <div class="portrait-inner">
-      <img id="fixed-bg-img" src="my%20photo.jpg" onerror="this.onerror=null;this.src='../my%20photo.jpg';" alt="Fahad Portrait" role="presentation" loading="eager" />
+      <img id="fixed-bg-img" src="my%20photo.jpg" onerror="this.onerror=null;this.src='../my%20photo.jpg';"
+        alt="Fahad Portrait" role="presentation" loading="eager" />
     </div>
   </div>
 
@@ -1602,13 +1603,18 @@
           <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-          <p class="section-sub" style="max-width:300px;text-align:right;">Real-world systems delivered across manufacturing, motion control, and AI perception.</p>
+          <p class="section-sub" style="max-width:300px;text-align:right;">Real-world systems delivered across
+            manufacturing, motion control, and AI perception.</p>
           <div class="slider-controls" aria-label="Project slide navigation">
             <button class="slider-btn" id="proj-prev" aria-label="Previous project">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
             </button>
             <button class="slider-btn" id="proj-next" aria-label="Next project">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
             </button>
           </div>
         </div>
@@ -1621,20 +1627,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
-              alt="Industrial robotic arm in factory automation setting" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Robotics &amp; SCADA">Robotics &amp; SCADA</div>
+              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Motion Control &amp; X-Ray">Motion Control &amp; X-Ray</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Robotics &amp; SCADA</span>
+              <span class="proj-cat">Motion Control &amp; X-Ray</span>
               <span class="proj-year">2026</span>
             </div>
-            <h3 class="proj-title">Autonomous Robotic Painting Cell</h3>
-            <p class="proj-desc">Dobot CR10A cobot integration with Ignition SCADA for plant-wide manufacturing
-              automation and real-time process monitoring.</p>
+            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
+            <p class="proj-desc">Led electrical &amp; automation delivery for a prototype X-ray scanning machine. Designed split-panel architecture with remote I/O via slip ring, EPLAN panel engineering, and Beckhoff TwinCAT servo motion control.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Autonomous Robotic Painting Cell">
+                aria-label="View details for Motion Development Platform 2">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1650,20 +1655,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
-              alt="Complex industrial motion control machinery" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Motion Control">Motion Control</div>
+              alt="12-Axis motion control platform for aerospace inspection" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Aerospace &amp; Robotics">Aerospace &amp; Robotics</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Motion Control</span>
-              <span class="proj-year">2026</span>
+              <span class="proj-cat">Aerospace &amp; Robotics</span>
+              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">12-Axis Motion Platform</h3>
-            <p class="proj-desc">Split-panel electrical architecture and FSoE safety implementation for industrial X-ray
-              scanning and non-destructive testing.</p>
+            <h3 class="proj-title">Rolls-Royce 12-Axis Inspection Platform</h3>
+            <p class="proj-desc">Controls Engineer for a 12-axis motion platform for automated aerospace engine inspection in collaboration with Rolls-Royce, defining complete automated control architecture with Siemens and MACH4 technology.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for 12-Axis Motion Platform">
+                aria-label="View details for Rolls-Royce 12-Axis Inspection Platform">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1679,20 +1683,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
-              alt="Computer vision and AI edge computing setup" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Perception &amp; AI">Perception &amp; AI</div>
+              alt="Robotic cell digital twin and virtual commissioning setup" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Digital Twin &amp; Robotics">Digital Twin &amp; Robotics</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Perception &amp; AI</span>
-              <span class="proj-year">2026</span>
+              <span class="proj-cat">Digital Twin &amp; Robotics</span>
+              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">Real-Time Vision Pipeline</h3>
-            <p class="proj-desc">Edge deployment utilising YOLO, OpenVINO FP16, and asyncua OPC UA on Windows IoT for
-              live industrial inspection at line speed.</p>
+            <h3 class="proj-title">AMRC F2050 Robotic Cell &amp; Digital Twin</h3>
+            <p class="proj-desc">Engineered an advanced robotic cell in AMRC Factory 2050 integrating KUKA KRC5 &amp; ABB IRC5 robots via EtherCAT and DeviceNet to Beckhoff TwinCAT 3, establishing live OPC UA digital twin validation with Visual Components.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Real-Time Vision Pipeline">
+                aria-label="View details for AMRC F2050 Robotic Cell &amp; Digital Twin">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1708,20 +1711,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
-              alt="Industrial robotic arm in factory automation setting" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Robotics &amp; SCADA">Robotics &amp; SCADA</div>
+              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Motion Control &amp; X-Ray">Motion Control &amp; X-Ray</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Robotics &amp; SCADA</span>
+              <span class="proj-cat">Motion Control &amp; X-Ray</span>
               <span class="proj-year">2026</span>
             </div>
-            <h3 class="proj-title">Autonomous Robotic Painting Cell</h3>
-            <p class="proj-desc">Dobot CR10A cobot integration with Ignition SCADA for plant-wide manufacturing
-              automation and real-time process monitoring.</p>
+            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
+            <p class="proj-desc">Led electrical &amp; automation delivery for a prototype X-ray scanning machine. Designed split-panel architecture with remote I/O via slip ring, EPLAN panel engineering, and Beckhoff TwinCAT servo motion control.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Autonomous Robotic Painting Cell">
+                aria-label="View details for Motion Development Platform 2">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1737,20 +1739,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
-              alt="Complex industrial motion control machinery" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Motion Control">Motion Control</div>
+              alt="12-Axis motion control platform for aerospace inspection" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Aerospace &amp; Robotics">Aerospace &amp; Robotics</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Motion Control</span>
-              <span class="proj-year">2026</span>
+              <span class="proj-cat">Aerospace &amp; Robotics</span>
+              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">12-Axis Motion Platform</h3>
-            <p class="proj-desc">Split-panel electrical architecture and FSoE safety implementation for industrial X-ray
-              scanning and non-destructive testing.</p>
+            <h3 class="proj-title">Rolls-Royce 12-Axis Inspection Platform</h3>
+            <p class="proj-desc">Controls Engineer for a 12-axis motion platform for automated aerospace engine inspection in collaboration with Rolls-Royce, defining complete automated control architecture with Siemens and MACH4 technology.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for 12-Axis Motion Platform">
+                aria-label="View details for Rolls-Royce 12-Axis Inspection Platform">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1766,20 +1767,19 @@
           <div class="proj-img-box">
             <img class="proj-img"
               src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
-              alt="Computer vision and AI edge computing setup" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Perception &amp; AI">Perception &amp; AI</div>
+              alt="Robotic cell digital twin and virtual commissioning setup" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Digital Twin &amp; Robotics">Digital Twin &amp; Robotics</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Perception &amp; AI</span>
-              <span class="proj-year">2026</span>
+              <span class="proj-cat">Digital Twin &amp; Robotics</span>
+              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">Real-Time Vision Pipeline</h3>
-            <p class="proj-desc">Edge deployment utilising YOLO, OpenVINO FP16, and asyncua OPC UA on Windows IoT for
-              live industrial inspection at line speed.</p>
+            <h3 class="proj-title">AMRC F2050 Robotic Cell &amp; Digital Twin</h3>
+            <p class="proj-desc">Engineered an advanced robotic cell in AMRC Factory 2050 integrating KUKA KRC5 &amp; ABB IRC5 robots via EtherCAT and DeviceNet to Beckhoff TwinCAT 3, establishing live OPC UA digital twin validation with Visual Components.</p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Real-Time Vision Pipeline">
+                aria-label="View details for AMRC F2050 Robotic Cell &amp; Digital Twin">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1820,60 +1820,55 @@
         <!-- Entry 1 -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2025</div>
+            <div class="tl-year">2026</div>
             <div class="tl-badge">Present</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-role">KTP Associate</div>
-            <div class="tl-org">Knowledge Transfer Partnership &middot; AMRC</div>
-            <p class="tl-desc">Leading a government-funded KTP project to develop an autonomous robotic painting cell
-              integrated with Ignition SCADA, deploying Dobot CR10A cobots into live manufacturing environments.</p>
+            <div class="tl-role">Automation and Robotics Lead Engineer</div>
+            <div class="tl-org">Heyside Group &middot; Manchester</div>
+            <p class="tl-desc">Leading technical design, development, simulation, and commissioning of an integrated automated production line for heavy-duty post-moulding processes (including automated painting, cooling, stemming, and sorting systems). Designing and programming robust PLC/SCADA systems, and implementing computer vision and AI/ML algorithms (YOLO, pose estimation) for automated component identification and real-time defect detection.</p>
           </div>
         </div>
 
         <!-- Entry 2 -->
         <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-role">Research Engineer</div>
-            <div class="tl-org" style="text-align:right;">Advanced Manufacturing Research Centre</div>
-            <p class="tl-desc" style="text-align:right;">Developed high-DOF motion control platforms for industrial
-              X-ray scanning, implementing FSoE functional safety and split-panel electrical architectures across
-              multi-axis systems.</p>
+            <div class="tl-role">Machine Integration Engineer (Electrical &amp; Automation)</div>
+            <div class="tl-org" style="text-align:right;">AMRC Integrated Manufacturing Group (IMG) &middot; Sheffield</div>
+            <p class="tl-desc" style="text-align:right;">Overseeing the delivery of machine and low-voltage control panel design and commissioning for advanced manufacturing research projects. Providing technical expertise in control systems, hardware architecture (sensors, actuators, safety components), EPLAN Pro Panel schematics, Siemens TIA Portal, Beckhoff TwinCAT 3, and compliance with machinery directives and safety standards.</p>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-year">2023</div>
+            <div class="tl-year">2025</div>
           </div>
         </div>
 
         <!-- Entry 3 -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2022</div>
+            <div class="tl-year">2023</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-role">Robotics Engineer</div>
-            <div class="tl-org">Perception &amp; AI Systems</div>
-            <p class="tl-desc">Designed and deployed real-time vision pipelines using YOLO, OpenVINO FP16, and asyncua
-              OPC UA on Windows IoT for edge-based industrial inspection at line speed.</p>
+            <div class="tl-role">Research Engineer (Process Monitoring &amp; Control)</div>
+            <div class="tl-org">Advanced Manufacturing Research Centre (AMRC) &middot; Sheffield</div>
+            <p class="tl-desc">Applied signal analysis and machine learning techniques for industrial process monitoring and fault diagnostics. Key researcher on a ~£1M EPSRC-funded project developing autonomous machine tool anomaly detection (SDMMFA), and served as Lead Engineer for Tool Condition Monitoring (TCM) in collaboration with Mitsubishi Heavy Industries (MHI).</p>
           </div>
         </div>
 
         <!-- Entry 4 -->
         <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-role">Graduate Engineer</div>
-            <div class="tl-org" style="text-align:right;">Embedded Systems &amp; Robotics</div>
-            <p class="tl-desc" style="text-align:right;">Built embedded firmware for Arduino and Raspberry Pi platforms,
-              with early ROS integration and sensor fusion work in autonomous navigation and SLAM.</p>
+            <div class="tl-role">Senior Automation Engineer</div>
+            <div class="tl-org" style="text-align:right;">Holcim Cement Plant &middot; LafargeHolcim</div>
+            <p class="tl-desc" style="text-align:right;">Managed the operation of plant-wide control systems, including Rockwell ControlLogix PLCs, FactoryTalk SE SCADA, Siemens RTUs, and Profibus DP / Ethernet/IP networks. Delivered major automation upgrades including Water Station PLC rehabilitation and MillMaster fuzzy logic milling optimization using LabVIEW and OPC communication.</p>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
@@ -1886,17 +1881,15 @@
         <!-- Entry 5 -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2016</div>
+            <div class="tl-year">2015</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-role">MEng Aerospace &amp; Robotics</div>
-            <div class="tl-org">University of Sheffield</div>
-            <p class="tl-desc">Graduated with distinction. Final-year project focused on autonomous UAV control using
-              computer vision and embedded real-time systems. Qualified as a Private Pilot and Glider Pilot during
-              studies.</p>
+            <div class="tl-role">BSc in Control and Systems Engineering - Mechatronics</div>
+            <div class="tl-org">University of Technology Baghdad &middot; Distinction</div>
+            <p class="tl-desc">Graduated with distinction. Final-year project focused on path planning and obstacle avoidance in mobile robotics applications. Later completed MSc in Automation, Control &amp; Robotics at Sheffield Hallam University with distinction (Thesis: Novel ID Assignment Algorithm for Swarm Robotics).</p>
           </div>
         </div>
 
@@ -1922,9 +1915,11 @@
             alt="Dr. James Hartley" loading="lazy" />
           <div class="testi-header">
             <div class="testi-name">Dr. James Hartley</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Dr. James Hartley">
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
+              aria-label="LinkedIn profile of Dr. James Hartley">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
@@ -1941,9 +1936,11 @@
             alt="Dr. Sarah Okafor" loading="lazy" />
           <div class="testi-header">
             <div class="testi-name">Dr. Sarah Okafor</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Dr. Sarah Okafor">
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
+              aria-label="LinkedIn profile of Dr. Sarah Okafor">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
@@ -1960,9 +1957,11 @@
             alt="Marcus Webb" loading="lazy" />
           <div class="testi-header">
             <div class="testi-name">Marcus Webb</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin" aria-label="LinkedIn profile of Marcus Webb">
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
+              aria-label="LinkedIn profile of Marcus Webb">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
