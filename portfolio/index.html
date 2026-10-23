@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fahad — Robotics &amp; Automation Engineer</title>
+  <meta name="description"
+    content="Portfolio of Fahad, a Robotics, Automation, and Industry 4.0 Engineer specialising in cobots, SCADA, computer vision, and motion control systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#C8A96E',
+            'accent-light': '#E2C99A',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #111111;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #111111;
+      color: #F5F5F5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C8A96E;
+    }
+
+    /* ── NAV ── */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background 0.35s, border-color 0.35s;
+    }
+
+    #navbar.scrolled {
+      background: rgba(14, 14, 14, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      background: rgba(200, 169, 110, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #C8A96E;
+      transition: background 0.2s;
+    }
+
+    .nav-logo:hover .nav-logo-mark {
+      background: rgba(200, 169, 110, 0.18);
+    }
+
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #F5F5F5;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-link {
+      color: #777;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #C8A96E;
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #F5F5F5;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-link.active {
+      color: #C8A96E;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C8A96E;
+      color: #111;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 11px 22px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #dbbf87;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #ccc;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 22px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(200, 169, 110, 0.4);
+      color: #C8A96E;
+      background: rgba(200, 169, 110, 0.06);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 1.5px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 1px;
+      transition: all 0.25s;
+    }
+
+    .hamburger span:nth-child(2) {
+      width: 16px;
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-links,
+      .nav-links+.btn-ghost {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(8, 8, 8, 0.98);
+      backdrop-filter: blur(24px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-link {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #777;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .mobile-link:hover {
+      color: #C8A96E;
+    }
+
+    #mobile-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color 0.2s;
+    }
+
+    #mobile-close:hover {
+      color: #fff;
+    }
+
+    /* ── FIXED BACKGROUND PORTRAIT (stays during scroll & blurs) ── */
+    #fixed-bg-portrait {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50vw;
+      max-width: 620px;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .portrait-inner {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      max-height: 680px;
+      -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%),
+        linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to right, transparent 0%, black 18%, black 75%, transparent 100%),
+        linear-gradient(to bottom, black 0%, black 74%, transparent 100%);
+      mask-composite: intersect;
+    }
+
+    #fixed-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%) contrast(1.08) brightness(0.9) blur(0px);
+      transition: filter 0.08s ease-out, opacity 0.08s ease-out, transform 0.08s ease-out;
+      will-change: filter, opacity, transform;
+    }
+
+    @media (max-width: 900px) {
+      #fixed-bg-portrait {
+        width: 100vw;
+        max-width: 100%;
+        opacity: 0.35;
+      }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 75% 65% at 68% 40%, rgba(42, 42, 42, 0.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.022;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      min-height: 88vh;
+      gap: 0;
+    }
+
+    .hero-content {
+      padding: 48px 0 24px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C8A96E;
+      margin-bottom: 14px;
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(48px, 6.5vw, 82px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+    }
+
+    .hero-name .accent {
+      color: #C8A96E;
+    }
+
+    .hero-sub {
+      font-size: 15.5px;
+      color: #777;
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub strong {
+      color: #C8A96E;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat-card {
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 14px 18px;
+      background: rgba(28, 28, 28, 0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #C8A96E;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      color: #555;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    /* Spacer for desktop hero grid (portrait shows through from background) */
+    .hero-portrait-spacer {
+      position: relative;
+      height: 100%;
+      min-height: 480px;
+      pointer-events: none;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .scroll-hint-text {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #444;
+      font-weight: 600;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(200, 169, 110, 0.7), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-portrait-spacer {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 90px 0 40px;
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+    }
+
+    /* ── SECTION BASE (Compact padding & spacing) ── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 48px 0;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C8A96E;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #F5F5F5;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 14.5px;
+      color: #777;
+      line-height: 1.65;
+    }
+
+    /* ── SKILLS (Single Row Infinite Loop) ── */
+    #skills {
+      background: rgba(17, 17, 17, 0.72);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .skills-carousel-wrap {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      margin-bottom: 24px;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      padding: 6px 0;
+    }
+
+    .skills-row-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: skillsInfiniteLoop 32s linear infinite;
+    }
+
+    .skills-row-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes skillsInfiniteLoop {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .skill-card {
+      width: 290px;
+      flex-shrink: 0;
+      background: rgba(26, 26, 26, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.065);
+      border-radius: 14px;
+      padding: 22px 20px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: border-color 0.25s, transform 0.25s, background 0.25s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(200, 169, 110, 0.3);
+      background: rgba(32, 30, 26, 0.85);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .skill-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F0F0F0;
+      margin-bottom: 6px;
+    }
+
+    .skill-sub {
+      font-size: 12.5px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* Marquee */
+    .marquee-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeRoll 30s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeRoll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      margin: 0 4px;
+      background: rgba(24, 24, 24, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      white-space: nowrap;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #888;
+      letter-spacing: 0.01em;
+    }
+
+    .marquee-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #C8A96E;
+      flex-shrink: 0;
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      background: linear-gradient(180deg, rgba(17, 17, 17, 0.76) 0%, rgba(12, 12, 12, 0.85) 100%);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .projects-slider {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(330px, 1fr));
+      gap: 22px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .projects-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .projects-slider {
+        grid-template-columns: repeat(3, 86vw);
+      }
+    }
+
+    .project-card {
+      scroll-snap-align: start;
+      background: #181818;
+      border: 1px solid rgba(255, 255, 255, 0.068);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.35s;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      border-color: rgba(200, 169, 110, 0.22);
+      transform: translateY(-5px);
+    }
+
+    .project-card:hover .proj-img {
+      transform: scale(1.06);
+    }
+
+    .proj-img-box {
+      height: 258px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .proj-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.12) brightness(0.78);
+      transition: transform 0.65s ease;
+    }
+
+    .proj-pill {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(14, 14, 14, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #C8A96E;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .proj-body {
+      padding: 24px;
+    }
+
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .proj-cat {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C8A96E;
+    }
+
+    .proj-year {
+      font-size: 12px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .proj-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F0F0F0;
+      line-height: 1.28;
+      margin-bottom: 10px;
+    }
+
+    .proj-desc {
+      font-size: 13.5px;
+      color: #636363;
+      line-height: 1.68;
+    }
+
+    .proj-footer {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.048);
+    }
+
+    /* ── EXPERIENCE / TIMELINE ── */
+    #experience {
+      background: rgba(17, 17, 17, 0.78);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .timeline-wrap {
+      position: relative;
+    }
+
+    .timeline-spine {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(200, 169, 110, 0.25) 8%, rgba(200, 169, 110, 0.25) 92%, transparent 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      gap: 0 28px;
+      align-items: start;
+      margin-bottom: 38px;
+    }
+
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .tl-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-node {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(200, 169, 110, 0.6);
+      background: #111;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .tl-node::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: #C8A96E;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .timeline-entry:hover .tl-node {
+      border-color: #C8A96E;
+    }
+
+    .timeline-entry:hover .tl-node::after {
+      opacity: 1;
+    }
+
+    .tl-left {
+      text-align: right;
+    }
+
+    .tl-right {
+      text-align: left;
+    }
+
+    .tl-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      color: #C8A96E;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+
+    .tl-badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: #444;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .tl-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F0F0F0;
+      margin-bottom: 4px;
+    }
+
+    .tl-org {
+      font-size: 12px;
+      color: #C8A96E;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .tl-desc {
+      font-size: 13.5px;
+      color: #666;
+      line-height: 1.68;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-spine {
+        left: 18px;
+      }
+
+      .timeline-entry {
+        grid-template-columns: 0 36px 1fr;
+        gap: 0 16px;
+      }
+
+      .tl-left {
+        display: none;
+      }
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: linear-gradient(180deg, rgba(17, 17, 17, 0.8) 0%, rgba(13, 13, 13, 0.88) 100%);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .testi-card {
+      background: rgba(22, 22, 22, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.068);
+      border-radius: 16px;
+      padding: 26px 20px 20px;
+      position: relative;
+      margin-top: 24px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .testi-card:hover {
+      border-color: rgba(200, 169, 110, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .testi-avatar {
+      position: absolute;
+      top: -24px;
+      left: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #181818;
+      outline: 2px solid rgba(200, 169, 110, 0.28);
+      filter: grayscale(75%);
+    }
+
+    .testi-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F0F0F0;
+      margin-top: 14px;
+      margin-bottom: 2px;
+    }
+
+    .testi-title {
+      font-size: 11.5px;
+      color: #C8A96E;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    .testi-quote {
+      font-size: 13px;
+      color: #7a7a7a;
+      line-height: 1.7;
+      font-style: italic;
+      border-left: 2px solid rgba(200, 169, 110, 0.3);
+      padding-left: 12px;
+    }
+
+    /* ── CTA ── */
+    #contact {
+      background: rgba(17, 17, 17, 0.82);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(28, 26, 22, 0.95) 0%, rgba(16, 16, 16, 0.98) 100%);
+      border: 1px solid rgba(200, 169, 110, 0.12);
+      border-radius: 20px;
+      padding: 48px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-glow {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 169, 110, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800;
+      color: #F5F5F5;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: #666;
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.68;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.055);
+      padding: 24px 0;
+      background: #0e0e0e;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      border: 1px solid rgba(200, 169, 110, 0.2);
+      background: rgba(200, 169, 110, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #C8A96E;
+    }
+
+    .footer-brand-text>div:first-child {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #F0F0F0;
+    }
+
+    .footer-brand-text>div:last-child {
+      font-size: 11px;
+      color: #444;
+      margin-top: 1px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-link {
+      color: #444;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-link:hover {
+      color: #C8A96E;
+      background: rgba(200, 169, 110, 0.06);
+    }
+
+    .footer-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #383838;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.d1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal.d2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal.d3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal.d4 {
+      transition-delay: 0.4s;
+    }
+
+    .reveal.d5 {
+      transition-delay: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════ FIXED BACKGROUND PORTRAIT (Stays during scroll with blur effect) ═══════ -->
+  <div id="fixed-bg-portrait" aria-hidden="true">
+    <div class="portrait-inner">
+      <img id="fixed-bg-img" src="my%20photo.jpg" onerror="this.onerror=null;this.src='../my%20photo.jpg';" alt="Fahad Portrait" role="presentation" loading="eager" />
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Fahad — Home">
+        <div class="nav-logo-mark" aria-hidden="true">F</div>
+        <span class="nav-logo-text">FAHAD</span>
+      </a>
+
+      <div class="nav-links" role="menubar">
+        <a href="#skills" class="nav-link" role="menuitem">Skills</a>
+        <a href="#projects" class="nav-link" role="menuitem">Projects</a>
+        <a href="#experience" class="nav-link" role="menuitem">Experience</a>
+        <a href="#testimonials" class="nav-link" role="menuitem">Testimonials</a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="#contact" class="btn-ghost" style="padding:9px 18px;font-size:13px;border-radius:8px;" id="nav-cta">Get
+          in touch</a>
+        <button class="hamburger" id="menu-btn" aria-label="Open navigation menu" aria-expanded="false"
+          aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button id="mobile-close" aria-label="Close menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#testimonials" class="mobile-link">Testimonials</a>
+    <a href="#contact" class="btn-primary" style="margin-top:8px;">Get in touch</a>
+  </div>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <!-- Content -->
+      <div class="hero-content">
+        <span class="hero-eyebrow reveal" style="animation:none;">Robotics &amp; Automation Engineer</span>
+        <h1 id="hero-heading" class="hero-name reveal" style="animation:none;">
+          Hello,<br />I'm <span class="accent">Fahad</span>
+        </h1>
+        <p class="hero-sub reveal" style="animation:none;">
+          Bridging intelligent systems and industrial scale &mdash; specialising in
+          <strong>Robotics</strong>, <strong>Automation</strong>,
+          and <strong>Industry 4.0</strong> engineering.
+        </p>
+        <div class="hero-cta reveal" style="animation:none;">
+          <a href="#projects" class="btn-primary" id="hero-view-projects">
+            View Projects
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-ghost" id="hero-contact">Let's Talk</a>
+        </div>
+        <div class="stat-row reveal" style="animation:none;">
+          <div class="stat-card">
+            <div class="stat-num">6+</div>
+            <div class="stat-lbl">Years Exp.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">12+</div>
+            <div class="stat-lbl">Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">Patents</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacer for Desktop: lets fixed background portrait show through -->
+      <div class="hero-portrait-spacer" aria-hidden="true"></div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="scroll-hint-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════ SKILLS ═══════ -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div style="max-width:540px; margin-bottom:24px;" class="reveal">
+        <span class="section-label">Expertise</span>
+        <h2 id="skills-heading" class="section-title">Technical Skills</h2>
+        <p class="section-sub">A multi-disciplinary toolkit spanning robotics middleware, GPU computing, perception AI,
+          and industrial automation.</p>
+      </div>
+
+      <!-- Skills One Row Infinite Loop -->
+      <div class="skills-carousel-wrap reveal">
+        <div class="skills-row-track" aria-label="Technical skills scrolling list" role="region">
+          <!-- 8 Skill Cards (Original) -->
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">⚡</div>
+            <div class="skill-title">Systems &amp; GPU</div>
+            <div class="skill-sub">C, C++, C#, CUDA, Python, real-time OS, parallel computing</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🔬</div>
+            <div class="skill-title">Simulation &amp; Scientific</div>
+            <div class="skill-sub">Python, MATLAB, R, SciPy, Simulink, numerical modelling</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🔌</div>
+            <div class="skill-title">Embedded Hardware</div>
+            <div class="skill-sub">Arduino, Raspberry Pi, ESP8266/32, PLC, fieldbus protocols</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">👁️</div>
+            <div class="skill-title">Perception &amp; Learning</div>
+            <div class="skill-sub">OpenCV, YOLO, TensorFlow, PyTorch, OpenVINO FP16</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">📐</div>
+            <div class="skill-title">CAD &amp; 3D Assets</div>
+            <div class="skill-sub">SolidWorks, AutoCAD, Blender, OpenUSD, CAM toolpaths</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <div class="skill-title">Robot Middleware</div>
+            <div class="skill-sub">ROS, ROS 2, Gazebo, MoveIt, Nav2, OPC UA, asyncua</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🎮</div>
+            <div class="skill-title">NVIDIA Robotics</div>
+            <div class="skill-sub">Isaac Sim, Isaac Lab, Omniverse, CUDA compute graphs</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">✈️</div>
+            <div class="skill-title">Aviation Credentials</div>
+            <div class="skill-sub">Private Pilot, Glider Pilot, Drone Operator (CA + US FAA)</div>
+          </div>
+
+          <!-- 8 Skill Cards Duplicate (for seamless continuous infinite loop) -->
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">⚡</div>
+            <div class="skill-title">Systems &amp; GPU</div>
+            <div class="skill-sub">C, C++, C#, CUDA, Python, real-time OS, parallel computing</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">🔬</div>
+            <div class="skill-title">Simulation &amp; Scientific</div>
+            <div class="skill-sub">Python, MATLAB, R, SciPy, Simulink, numerical modelling</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">🔌</div>
+            <div class="skill-title">Embedded Hardware</div>
+            <div class="skill-sub">Arduino, Raspberry Pi, ESP8266/32, PLC, fieldbus protocols</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">👁️</div>
+            <div class="skill-title">Perception &amp; Learning</div>
+            <div class="skill-sub">OpenCV, YOLO, TensorFlow, PyTorch, OpenVINO FP16</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">📐</div>
+            <div class="skill-title">CAD &amp; 3D Assets</div>
+            <div class="skill-sub">SolidWorks, AutoCAD, Blender, OpenUSD, CAM toolpaths</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <div class="skill-title">Robot Middleware</div>
+            <div class="skill-sub">ROS, ROS 2, Gazebo, MoveIt, Nav2, OPC UA, asyncua</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">🎮</div>
+            <div class="skill-title">NVIDIA Robotics</div>
+            <div class="skill-sub">Isaac Sim, Isaac Lab, Omniverse, CUDA compute graphs</div>
+          </div>
+          <div class="skill-card" aria-hidden="true">
+            <div class="skill-icon" aria-hidden="true">✈️</div>
+            <div class="skill-title">Aviation Credentials</div>
+            <div class="skill-sub">Private Pilot, Glider Pilot, Drone Operator (CA + US FAA)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marquee Strip -->
+      <div class="reveal">
+        <div
+          style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#383838;text-align:center;margin-bottom:18px;">
+          Tools &amp; Platforms</div>
+        <div class="marquee-wrap">
+          <div class="marquee-track" aria-label="Scrolling list of tools and platforms" role="marquee">
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Ignition SCADA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>ROS 2</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenCV</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>YOLO v8</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenVINO</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Dobot CR10A</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OPC UA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Isaac Sim</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>FSoE Safety</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>SolidWorks</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>CUDA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>PyTorch</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Blender</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Windows IoT</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MATLAB</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MoveIt</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Nav2</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>asyncua</div>
+            <!-- Duplicate for loop -->
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Ignition SCADA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>ROS 2</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenCV</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>YOLO v8</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenVINO</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Dobot CR10A</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OPC UA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Isaac Sim</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>FSoE Safety</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>SolidWorks</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>CUDA</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>PyTorch</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Blender</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Windows IoT</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MATLAB</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MoveIt</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Nav2</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>asyncua</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PROJECTS ═══════ -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="projects-header reveal">
+        <div>
+          <span class="section-label">Portfolio</span>
+          <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
+        </div>
+        <p class="section-sub" style="max-width:300px;">Real-world systems delivered across manufacturing, motion
+          control, and AI perception.</p>
+      </div>
+
+      <div class="projects-slider reveal" role="list" aria-label="Featured projects">
+
+        <!-- Project 1 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
+              alt="Industrial robotic arm in factory automation setting" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Robotics &amp; SCADA">Robotics &amp; SCADA</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Robotics &amp; SCADA</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">Autonomous Robotic Painting Cell</h3>
+            <p class="proj-desc">Dobot CR10A cobot integration with Ignition SCADA for plant-wide manufacturing
+              automation and real-time process monitoring.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Autonomous Robotic Painting Cell">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
+              alt="Complex industrial motion control machinery" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Motion Control">Motion Control</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Motion Control</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">12-Axis Motion Platform</h3>
+            <p class="proj-desc">Split-panel electrical architecture and FSoE safety implementation for industrial X-ray
+              scanning and non-destructive testing.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for 12-Axis Motion Platform">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img"
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
+              alt="Computer vision and AI edge computing setup" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Perception &amp; AI">Perception &amp; AI</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Perception &amp; AI</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <h3 class="proj-title">Real-Time Vision Pipeline</h3>
+            <p class="proj-desc">Edge deployment utilising YOLO, OpenVINO FP16, and asyncua OPC UA on Windows IoT for
+              live industrial inspection at line speed.</p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Real-Time Vision Pipeline">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:18px;" class="reveal" aria-hidden="true">
+        <div style="width:36px;height:1px;background:rgba(255,255,255,0.08);"></div>
+        <span
+          style="font-size:10.5px;color:#383838;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;">Scroll
+          to explore</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#383838" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ EXPERIENCE ═══════ -->
+  <section id="experience" aria-labelledby="experience-heading">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:80px;" class="reveal">
+        <span class="section-label">Career</span>
+        <h2 id="experience-heading" class="section-title">Experience</h2>
+        <p class="section-sub" style="max-width:400px;margin:0 auto;">A decade of engineering milestones across
+          research, industry, and advanced manufacturing.</p>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline-spine" aria-hidden="true"></div>
+
+        <!-- Entry 1 -->
+        <div class="timeline-entry reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-year">2025</div>
+            <div class="tl-badge">Present</div>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-role">KTP Associate</div>
+            <div class="tl-org">Knowledge Transfer Partnership &middot; AMRC</div>
+            <p class="tl-desc">Leading a government-funded KTP project to develop an autonomous robotic painting cell
+              integrated with Ignition SCADA, deploying Dobot CR10A cobots into live manufacturing environments.</p>
+          </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="timeline-entry reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-role">Research Engineer</div>
+            <div class="tl-org" style="text-align:right;">Advanced Manufacturing Research Centre</div>
+            <p class="tl-desc" style="text-align:right;">Developed high-DOF motion control platforms for industrial
+              X-ray scanning, implementing FSoE functional safety and split-panel electrical architectures across
+              multi-axis systems.</p>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-year">2023</div>
+          </div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="timeline-entry reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-year">2022</div>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-role">Robotics Engineer</div>
+            <div class="tl-org">Perception &amp; AI Systems</div>
+            <p class="tl-desc">Designed and deployed real-time vision pipelines using YOLO, OpenVINO FP16, and asyncua
+              OPC UA on Windows IoT for edge-based industrial inspection at line speed.</p>
+          </div>
+        </div>
+
+        <!-- Entry 4 -->
+        <div class="timeline-entry reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-role">Graduate Engineer</div>
+            <div class="tl-org" style="text-align:right;">Embedded Systems &amp; Robotics</div>
+            <p class="tl-desc" style="text-align:right;">Built embedded firmware for Arduino and Raspberry Pi platforms,
+              with early ROS integration and sensor fusion work in autonomous navigation and SLAM.</p>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-year">2019</div>
+          </div>
+        </div>
+
+        <!-- Entry 5 -->
+        <div class="timeline-entry reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-year">2016</div>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-role">MEng Aerospace &amp; Robotics</div>
+            <div class="tl-org">University of Sheffield</div>
+            <p class="tl-desc">Graduated with distinction. Final-year project focused on autonomous UAV control using
+              computer vision and embedded real-time systems. Qualified as a Private Pilot and Glider Pilot during
+              studies.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ TESTIMONIALS ═══════ -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div style="text-align:center;" class="reveal">
+        <span class="section-label">Recognition</span>
+        <h2 id="testimonials-heading" class="section-title">What Colleagues Say</h2>
+        <p class="section-sub" style="max-width:400px;margin:0 auto;">Recommendations from engineers and leaders who
+          have worked alongside me on complex projects.</p>
+      </div>
+
+      <div class="testi-grid">
+
+        <div class="testi-card reveal d1">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="Dr. James Hartley" loading="lazy" />
+          <div class="testi-name">Dr. James Hartley</div>
+          <div class="testi-title">Principal Research Engineer &middot; AMRC</div>
+          <blockquote class="testi-quote">
+            "Fahad brings a rare combination of deep theoretical knowledge and practical engineering instinct. His work
+            on the motion platform was technically exceptional and delivered on time."
+          </blockquote>
+        </div>
+
+        <div class="testi-card reveal d2">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="Dr. Sarah Okafor" loading="lazy" />
+          <div class="testi-name">Dr. Sarah Okafor</div>
+          <div class="testi-title">Senior Lecturer in Robotics &middot; Sheffield</div>
+          <blockquote class="testi-quote">
+            "One of the most technically versatile engineers I've supervised — his vision pipeline project was
+            industry-leading and forms the foundation of ongoing research at the department."
+          </blockquote>
+        </div>
+
+        <div class="testi-card reveal d3">
+          <img class="testi-avatar"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
+            alt="Marcus Webb" loading="lazy" />
+          <div class="testi-name">Marcus Webb</div>
+          <div class="testi-title">Manufacturing Director &middot; KTP Partner</div>
+          <blockquote class="testi-quote">
+            "Fahad transformed our painting cell from manual operation to a fully integrated autonomous system. ROI was
+            clear within the first quarter and reliability has been outstanding."
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA / CONTACT ═══════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="cta-glow" style="top:-80px;right:-80px;width:280px;height:280px;" aria-hidden="true"></div>
+        <div class="cta-glow" style="bottom:-80px;left:-80px;width:220px;height:220px;" aria-hidden="true"></div>
+        <span class="section-label" style="position:relative;">Let's Collaborate</span>
+        <h2 id="contact-heading" class="cta-title" style="position:relative;">
+          Ready to Build<br />Something Intelligent?
+        </h2>
+        <p class="cta-sub" style="position:relative;">
+          Whether it's a robotics project, an automation challenge, or an Industry 4.0 strategy &mdash; I'd love to
+          talk.
+        </p>
+        <div class="cta-actions" style="position:relative;">
+          <a href="mailto:fahad@example.com" class="btn-primary" id="cta-email"
+            style="padding:14px 30px;font-size:15px;">
+            Send an Email
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-ghost" id="cta-linkedin"
+            style="padding:14px 30px;font-size:15px;">
+            LinkedIn Profile
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-mark" aria-hidden="true">F</div>
+        <div class="footer-brand-text">
+          <div>FAHAD</div>
+          <div>Robotics &amp; Automation</div>
+        </div>
+      </div>
+
+      <nav class="footer-links" aria-label="Social and contact links">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link"
+          aria-label="LinkedIn profile">LinkedIn</a>
+        <div class="footer-sep" aria-hidden="true"></div>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link"
+          aria-label="GitHub profile">GitHub</a>
+        <div class="footer-sep" aria-hidden="true"></div>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-link"
+          aria-label="Twitter profile">Twitter</a>
+        <div class="footer-sep" aria-hidden="true"></div>
+        <a href="mailto:fahad@example.com" class="footer-link" aria-label="Send email">Email</a>
+      </nav>
+
+      <div class="footer-copy">&copy; 2026 Fahad. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ═══════ SCRIPTS ═══════ -->
+  <script>
+    // ─── Background Photo Scroll Blur Effect
+    const bgImg = document.getElementById('fixed-bg-img');
+    const navbar = document.getElementById('navbar');
+
+    function updateScrollEffects() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Dynamic Blur Effect: transitions smoothly from 0px up to 22px as user scrolls down
+      // reaches max blur around 550px scroll
+      const progress = Math.min(scrollY / 550, 1);
+      const blurPx = progress * 20; // 0px to 20px blur
+      const brightness = 0.9 - (progress * 0.35); // 0.9 down to 0.55
+      const opacity = 1 - (progress * 0.45); // 1.0 down to 0.55
+      const scale = 1 + (progress * 0.05);
+
+      if (bgImg) {
+        bgImg.style.filter = `grayscale(100%) contrast(1.08) brightness(${brightness.toFixed(3)}) blur(${blurPx.toFixed(1)}px)`;
+        bgImg.style.opacity = opacity.toFixed(3);
+        bgImg.style.transform = `scale(${scale.toFixed(3)})`;
+      }
+
+      // Navbar scrolled state
+      if (navbar) {
+        navbar.classList.toggle('scrolled', scrollY > 16);
+      }
+    }
+
+    // High performance rAF scroll listener
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateScrollEffects();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    updateScrollEffects();
+
+    // ─── Smooth Scroll Animation with Cubic Easing
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+        const navOffset = 60;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 700;
+        let startTime = null;
+
+        function easeInOutCubic(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function scrollAnimation(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+          if (progress < 1) {
+            requestAnimationFrame(scrollAnimation);
+          }
+        }
+
+        requestAnimationFrame(scrollAnimation);
+      });
+    });
+
+    // ─── Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileClose = document.getElementById('mobile-close');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    menuBtn.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // ─── Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+
+    // Immediately show hero elements
+    document.querySelectorAll('#hero .reveal').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.transition = 'none';
+    });
+
+    revealEls.forEach(el => {
+      if (!el.closest('#hero')) revealObserver.observe(el);
+    });
+
+    // ─── Active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('a.nav-link');
+    const activeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => activeObserver.observe(s));
+  </script>
+</body>
+
+</html>
