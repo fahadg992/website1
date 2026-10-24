@@ -80,6 +80,9 @@
       background: #C8A96E;
     }
 
+
+
+
     /* ── NAV ── */
     #navbar {
       position: fixed;
@@ -671,6 +674,7 @@
       line-height: 1.6;
     }
 
+
     /* Marquee */
     .marquee-wrap {
       /* Adjust width for fewer logos */
@@ -755,6 +759,8 @@
       gap: 24px;
       flex-wrap: wrap;
       margin-bottom: 22px;
+
+
     }
 
     .projects-slider {
@@ -893,6 +899,18 @@
       font-size: 13.5px;
       color: #636363;
       line-height: 1.68;
+    }
+
+    .proj-desc a {
+      color: #F5F5F5;
+      /* your accent gold, or any colour you like */
+      font-weight: 100;
+      transition: color 0.2s;
+    }
+
+    .proj-desc a:hover {
+      color: #E2C99A;
+      /* your accent-light */
     }
 
     .proj-footer {
@@ -1366,7 +1384,7 @@
   <!-- ═══════ FIXED BACKGROUND PORTRAIT (Stays during scroll with blur effect) ═══════ -->
   <div id="fixed-bg-portrait" aria-hidden="true">
     <div class="portrait-inner">
-      <img id="fixed-bg-img" src="my%20photo.jpg" onerror="this.onerror=null;this.src='../my%20photo.jpg';"
+      <img id="fixed-bg-img" src="images\myphoto.jpg" onerror="this.onerror=null;this.src='images\myphoto.jpg';"
         alt="Fahad Portrait" role="presentation" loading="eager" />
     </div>
   </div>
@@ -1688,11 +1706,23 @@
               <span class="proj-cat">Automation & Robotics</span>
               <span class="proj-year">2026</span>
             </div>
-            <h3 class="proj-title">Robotic Painting Cell & Automated Line</h3>
-            <p class="proj-desc">Implemented YOLO-based AI vision for real-time object detection, and designed a rotary
-              table mechanism, developed HMI screen and programmed 6-axis robot equipped with automatic spray gun.
-              Which achieved a consistent coating quality, reduced paint consumption, reduced labour cost and
-              improved production efficiency.
+            <h3 class="proj-title">Robotic Painting Cell</h3>
+            <p class="proj-desc">Through an Innovate UK Knowledge Transfer Partnership (KTP)[1] between Heyside Group
+              and
+              the University of Salford to implement plant-wide automation, I've been appointed to lead the project and
+              identified critical
+              opportunities for process optimization [2]. Targeting the painting process—which suffered from high paint
+              waste and excessive labor costs—I designed and commissioned a complete robotic painting solution. This
+              eliminated material waste, reduced labor costs, and delivered significantly higher coating quality and
+              overall operational efficiency.<br />
+              <a href="https://heysidegroup.com/news-insights/how-heysides-robotics-and-automation-lead-is-supporting-our-strategic-goals/"
+                target="_blank" rel="noopener noreferrer">[1] How Heyside’s Robotics and Automation Lead is supporting
+                our
+                strategic goals. <br />
+                <a href="https://www.salford.ac.uk/news/university-of-salford-announces-five-new-partnerships-to-drive-business-growth-across-the-north-west#:~:text=And%20the%20three%2Dyear%20KTP%20with%20Heyside%20Group%20focuses%20on%20enhancing%20efficiency%2C%20reducing%20waste%20and%20improving%20worker%20safety%20by%20developing%20an%20integrated%20production%20line%20that%20automates%20post%2Dmoulding%20processes.%C2%A0"
+                  target="_blank" rel="noopener noreferrer">[2] University of Salford announces five new partnerships to
+                  drive
+                  business growth across the North West. </a>
             </p>
             <!-- <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
@@ -2403,7 +2433,7 @@
     }
 
     // Automatically slide to the right every 3.2 seconds
-    setInterval(slideProjectsRight, 3200);
+    setInterval(slideProjectsRight, 10000);
 
     if (projNextBtn) {
       projNextBtn.addEventListener('click', () => {
