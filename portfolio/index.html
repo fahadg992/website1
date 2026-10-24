@@ -324,7 +324,8 @@
     #fixed-bg-portrait {
       position: fixed;
       top: 0;
-      right: 0;
+      right: 20%;
+
       width: 50vw;
       max-width: 620px;
       height: 100vh;
@@ -815,7 +816,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%) contrast(1.12) brightness(0.78);
+      filter: grayscale(50%) contrast(1.12) brightness(0.78);
       transition: transform 0.65s ease;
     }
 
@@ -1405,9 +1406,9 @@
           Hello,<br />I'm <span class="accent">Fahad</span>
         </h1>
         <p class="hero-sub reveal" style="animation:none;">
-          Bridging intelligent systems and industrial scale &mdash; specialising in
-          <strong>Robotics</strong>, <strong>Automation</strong>,
-          and <strong>Industry 4.0</strong> engineering.
+          Manchester, UK-based Automation & Robotics Engineer, recognised as a Global Talent by the UK
+          Government and UKRI. 8 years of experience bridging advanced R&D, industrial automation, robotics, and
+          AI-driven engineering.
         </p>
         <div class="hero-cta reveal" style="animation:none;">
           <a href="#projects" class="btn-primary" id="hero-view-projects">
@@ -1421,7 +1422,7 @@
         </div>
         <div class="stat-row reveal" style="animation:none;">
           <div class="stat-card">
-            <div class="stat-num">6+</div>
+            <div class="stat-num">8+</div>
             <div class="stat-lbl">Years Exp.</div>
           </div>
           <div class="stat-card">
@@ -1599,7 +1600,7 @@
           <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-          <p class="section-sub" style="max-width:300px;text-align:right;">Real-world systems delivered across
+          <p class="section-sub" style="max-width:400px;text-align:left;">Real-world systems delivered across
             manufacturing, motion control, and AI perception.</p>
           <div class="slider-controls" aria-label="Project slide navigation">
             <button class="slider-btn" id="proj-prev" aria-label="Previous project">
@@ -1617,27 +1618,27 @@
       </div>
 
       <div class="projects-slider reveal" role="list" aria-label="Featured projects">
-
         <!-- Project 1 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
-              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Motion Control &amp; X-Ray">Motion Control &amp; X-Ray</div>
+            <img class="proj-img" src="/portfolio/images/robotic-painting.gif"
+              alt="Robotic Painting Cell and Automated Production Line" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Heyside Group">Heyside Group</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Motion Control &amp; X-Ray</span>
+              <span class="proj-cat">Automation & Robotics</span>
               <span class="proj-year">2026</span>
             </div>
-            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
-            <p class="proj-desc">Led electrical &amp; automation delivery for a prototype X-ray scanning machine.
-              Designed split-panel architecture with remote I/O via slip ring, EPLAN panel engineering, and Beckhoff
-              TwinCAT servo motion control.</p>
+            <h3 class="proj-title">Robotic Painting Cell & Automated Line</h3>
+            <p class="proj-desc">Implemented YOLO-based AI vision for real-time object detection, and designed a rotary
+              table mechanism, developed HMI screen and programmed 6-axis robot equipped with automatic spray gun.
+              Which achieved a consistent coating quality, reduced paint consumption, reduced labour cost and
+              improved production efficiency.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Motion Development Platform 2">
+                aria-label="View details for Robotic Painting Cell & Automated Line">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1651,23 +1652,23 @@
         <!-- Project 2 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
-              alt="12-Axis motion control platform for aerospace inspection" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Aerospace &amp; Robotics">Aerospace &amp; Robotics</div>
+            <img class="proj-img" src="/portfolio/images/mdp2.gif"
+              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Aerospace &amp; Robotics</span>
+              <span class="proj-cat">Motion Control & Automation</span>
               <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">Rolls-Royce 12-Axis Inspection Platform</h3>
-            <p class="proj-desc">Controls Engineer for a 12-axis motion platform for automated aerospace engine
-              inspection in collaboration with Rolls-Royce, defining complete automated control architecture with
-              Siemens and MACH4 technology.</p>
+            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
+            <p class="proj-desc">Engineered a split-panel control architecture via EPLAN and programmed a Beckhoff
+              TwinCAT system for precise, compliant multi-axis motion control on a prototype X-ray scanning
+              machine.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Rolls-Royce 12-Axis Inspection Platform">
+                aria-label="View details for Motion Development Platform 2 (MDP2)">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1681,23 +1682,22 @@
         <!-- Project 3 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
-              alt="Robotic cell digital twin and virtual commissioning setup" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Digital Twin &amp; Robotics">Digital Twin &amp; Robotics</div>
+            <img class="proj-img" src="/portfolio/images/rolls-royce.gif"
+              alt="Next Generation Parts Tools & Methods for aerospace" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC & Rolls-Royce">AMRC & Rolls-Royce</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Digital Twin &amp; Robotics</span>
+              <span class="proj-cat">Aerospace Control Systems</span>
               <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">AMRC F2050 Robotic Cell &amp; Digital Twin</h3>
-            <p class="proj-desc">Engineered an advanced robotic cell in AMRC Factory 2050 integrating KUKA KRC5 &amp;
-              ABB IRC5 robots via EtherCAT and DeviceNet to Beckhoff TwinCAT 3, establishing live OPC UA digital twin
-              validation with Visual Components.</p>
+            <h3 class="proj-title">Next Generation Parts Tools & Methods</h3>
+            <p class="proj-desc">Defined control architectures, developed EPLAN schematics, and commissioned a 12-axis
+              motion control platform using Siemens and MACH4 for automated aerospace engine inspection.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for AMRC F2050 Robotic Cell &amp; Digital Twin">
+                aria-label="View details for Next Generation Parts Tools & Methods">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1708,26 +1708,25 @@
           </div>
         </article>
 
-        <!-- Project 4 (Duplicate of 1 for seamless infinite sliding) -->
-        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+        <!-- Project 4 -->
+        <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop"
-              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Motion Control &amp; X-Ray">Motion Control &amp; X-Ray</div>
+            <img class="proj-img" src="/portfolio/images/digital-twin.gif" alt="Virtual Commissioning for Robotic Cells"
+              loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Motion Control &amp; X-Ray</span>
-              <span class="proj-year">2026</span>
+              <span class="proj-cat">Digital Twin & Virtual Commissioning</span>
+              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
-            <p class="proj-desc">Led electrical &amp; automation delivery for a prototype X-ray scanning machine.
-              Designed split-panel architecture with remote I/O via slip ring, EPLAN panel engineering, and Beckhoff
-              TwinCAT servo motion control.</p>
+            <h3 class="proj-title">Virtual Commissioning for Robotic Cells</h3>
+            <p class="proj-desc">Established a digital twin using Beckhoff TwinCAT 3, OPC UA, and Visual Components to
+              validate KUKA and ABB robotic cell motions prior to physical deployment.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Motion Development Platform 2">
+                aria-label="View details for Virtual Commissioning for Robotic Cells">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1738,26 +1737,25 @@
           </div>
         </article>
 
-        <!-- Project 5 (Duplicate of 2) -->
-        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+        <!-- Project 5 -->
+        <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80&auto=format&fit=crop"
-              alt="12-Axis motion control platform for aerospace inspection" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Aerospace &amp; Robotics">Aerospace &amp; Robotics</div>
+            <img class="proj-img" src="/portfolio/images/anomaly-detection.jpg" alt="Autonomous Tool Anomaly Detection"
+              loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Aerospace &amp; Robotics</span>
-              <span class="proj-year">2025</span>
+              <span class="proj-cat">AI & Machine Health Monitoring</span>
+              <span class="proj-year">2023</span>
             </div>
-            <h3 class="proj-title">Rolls-Royce 12-Axis Inspection Platform</h3>
-            <p class="proj-desc">Controls Engineer for a 12-axis motion platform for automated aerospace engine
-              inspection in collaboration with Rolls-Royce, defining complete automated control architecture with
-              Siemens and MACH4 technology.</p>
+            <h3 class="proj-title">Autonomous Tool Anomaly Detection</h3>
+            <p class="proj-desc">Conducted comprehensive machining trials and developed AI models using novel SDMMFA
+              techniques to create an autonomous diagnostic tool for machine health monitoring.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Rolls-Royce 12-Axis Inspection Platform">
+                aria-label="View details for Autonomous Tool Anomaly Detection">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1768,26 +1766,25 @@
           </div>
         </article>
 
-        <!-- Project 6 (Duplicate of 3) -->
-        <article class="project-card" role="listitem" tabindex="0" aria-hidden="true">
+        <!-- Project 6 -->
+        <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img"
-              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&auto=format&fit=crop"
-              alt="HLC" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Digital Twin &amp; Robotics">Digital Twin &amp; Robotics</div>
+            <img class="proj-img" src="/portfolio/images/mitsubishi.gif" alt="Tool Condition Monitoring"
+              loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC & Mitsubishi">AMRC & Mitsubishi</div>
           </div>
           <div class="proj-body">
             <div class="proj-meta">
-              <span class="proj-cat">Holcim &amp; Robotics</span>
-              <span class="proj-year">2025</span>
+              <span class="proj-cat">Predictive Maintenance & AI</span>
+              <span class="proj-year">2023</span>
             </div>
-            <h3 class="proj-title">AMRC F2050 Robotic Cell &amp; Digital Twin</h3>
-            <p class="proj-desc">Engineered an advanced robotic cell in AMRC Factory 2050 integrating KUKA KRC5 &amp;
-              ABB IRC5 robots via EtherCAT and DeviceNet to Beckhoff TwinCAT 3, establishing live OPC UA digital twin
-              validation with Visual Components.</p>
+            <h3 class="proj-title">Tool Condition Monitoring</h3>
+            <p class="proj-desc">Executed experimental machining trials and developed an NMFA approach-based diagnosis
+              algorithm to detect and validate real-time tool wear in physical milling applications.
+            </p>
             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for AMRC F2050 Robotic Cell &amp; Digital Twin">
+                aria-label="View details for Tool Condition Monitoring">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -1797,6 +1794,123 @@
             </div>
           </div>
         </article>
+
+        <!-- Project 7 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img" src="/portfolio/images/r3m.jpg"
+              alt="Reconfigurable Robotics for Responsive Manufacture" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">Robotics & Control Networks</span>
+              <span class="proj-year">2023</span>
+            </div>
+            <h3 class="proj-title">Reconfigurable Robotics (R3M)</h3>
+            <p class="proj-desc">Engineered Beckhoff PLC architectures, built advanced EtherCAT networks, and integrated
+              KUKA KRC5 robots to deliver a highly flexible robotic control system.
+            </p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Reconfigurable Robotics (R3M)">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img" src="/portfolio/images/water-station.jpg" alt="Water Station Rehabilitation"
+              loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">PLC Automation</span>
+              <span class="proj-year">2019</span>
+            </div>
+            <h3 class="proj-title">Water Station Rehabilitation</h3>
+            <p class="proj-desc">Commissioned resilient automation upgrades using Allen Bradley controllers and Siemens
+              Simocode motor panels via Profibus to modernize critical water pumping stations.
+            </p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Water Station Rehabilitation">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 9 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img" src="/portfolio/images/hlc.gif" alt="Mill Master High-Level Control System"
+              loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">MPC and Advanced Control</span>
+              <span class="proj-year">2019</span>
+            </div>
+            <h3 class="proj-title">Mill Master, High level Control System (HLC)</h3>
+            <p class="proj-desc">Developed and integrated a smart, fuzzy-logic-based system using LabVIEW and Allen
+              Bradley PLCs via OPC to automate and optimize heavy industrial cement ball milling.
+            </p>
+            <!-- <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Mill Master, High level Control System (HLC)">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>-->
+          </div>
+        </article>
+
+        <!-- Project 10 -->
+        <article class="project-card" role="listitem" tabindex="0">
+          <div class="proj-img-box">
+            <img class="proj-img" src="/portfolio/images/concrete-prediction.jpg"
+              alt="Concrete Strength Prediction System" loading="lazy" />
+            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-cat">AI Predictive Modeling</span>
+              <span class="proj-year">2019</span>
+            </div>
+            <h3 class="proj-title">Concrete Strength Prediction System</h3>
+            <p class="proj-desc">Implemented AI-driven predictive models utilizing real-time production parameters to
+              provide dynamic compressive strength estimations and enhance quality control.
+            </p>
+            <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Concrete Strength Prediction System">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
 
       </div>
 
