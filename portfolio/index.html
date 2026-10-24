@@ -324,7 +324,7 @@
     #fixed-bg-portrait {
       position: fixed;
       top: 0;
-      right: 20%;
+      right: 0%;
 
       width: 50vw;
       max-width: 620px;
@@ -673,6 +673,9 @@
 
     /* Marquee */
     .marquee-wrap {
+      /* Adjust width for fewer logos */
+      width: 50%;
+      margin: 0 auto;
       overflow: hidden;
       mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
@@ -695,23 +698,39 @@
 
       to {
         transform: translateX(-50%);
+        /* Shorter scroll distance */
       }
     }
 
     .marquee-pill {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
+      gap: 12px;
+      /* Increased slightly to give the dot and bigger logo more breathing room */
+      padding: 10px 20px;
+      /* Slightly larger padding to match the bigger logos */
       margin: 0 4px;
       background: rgba(24, 24, 24, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 999px;
+      /* This guarantees it always stays a perfect rounded pill regardless of size */
       white-space: nowrap;
       font-size: 12.5px;
       font-weight: 500;
       color: #888;
       letter-spacing: 0.01em;
+    }
+
+    .logo-img {
+      height: 32px;
+      /* Increased from 20px to make them visually bigger */
+      width: auto;
+      /* Allows wide logos (like Siemens) to stretch naturally without distorting */
+      max-width: 120px;
+      /* Safety measure so very wide logos don't break the layout */
+      object-fit: contain;
+      /* Ensures the logo perfectly fits inside its given height */
+      vertical-align: middle;
     }
 
     .marquee-dot {
@@ -1405,11 +1424,42 @@
         <h1 id="hero-heading" class="hero-name reveal" style="animation:none;">
           Hello,<br />I'm <span class="accent">Fahad</span>
         </h1>
-        <p class="hero-sub reveal" style="animation:none;">
-          Manchester, UK-based Automation & Robotics Engineer, recognised as a Global Talent by the UK
-          Government and UKRI. 8 years of experience bridging advanced R&D, industrial automation, robotics, and
-          AI-driven engineering.
-        </p>
+        <p class="hero-sub reveal" style="animation:none;"><span id="typed-hero" class="typed-cursor"></span></p>
+        <style>
+          #typed-hero.typed-cursor::after {
+            content: '|';
+            display: inline-block;
+            margin-left: 4px;
+            color: var(--accent, #e6a800);
+            font-weight: 300;
+            animation: blink-caret 1s step-end infinite;
+          }
+
+          @keyframes blink-caret {
+
+            0%,
+            100% {
+              opacity: 1;
+            }
+
+            50% {
+              opacity: 0;
+            }
+          }
+        </style>
+        <script>
+          const heroText = "Manchester-based Automation and Robotics Engineer with an MSc degree in Control and Robotics, 8+ years of experience, and a habit of making machines do the hard work. I mix AI, industrial automation, and advanced R&D, basically teaching robots to work so humans can supervise them. Proudly recognised as a Global Talent by the UKRI (UK Research and Innovation), apparently even my CV passed quality control.";
+          let heroIdx = 0;
+          function typeHero() {
+            if (heroIdx < heroText.length) {
+              document.getElementById('typed-hero').textContent += heroText.charAt(heroIdx);
+              heroIdx++;
+              setTimeout(typeHero, 30);
+            }
+            // cursor keeps blinking after typing completes
+          }
+          document.addEventListener('DOMContentLoaded', typeHero);
+        </script>
         <div class="hero-cta reveal" style="animation:none;">
           <a href="#projects" class="btn-primary" id="hero-view-projects">
             View Projects
@@ -1448,8 +1498,8 @@
       <div style="max-width:540px; margin-bottom:24px;" class="reveal">
         <span class="section-label">Expertise</span>
         <h2 id="skills-heading" class="section-title">Technical Skills</h2>
-        <p class="section-sub">A multi-disciplinary toolkit spanning robotics middleware, GPU computing, perception AI,
-          and industrial automation.</p>
+        <p class="section-sub">A certified technical skillset encompassing robotics, AI, and industrial control systems.
+        </p>
       </div>
 
       <!-- Skills One Row Infinite Loop -->
@@ -1457,86 +1507,86 @@
         <div class="skills-row-track" aria-label="Technical skills scrolling list" role="region">
           <!-- 8 Skill Cards (Original) -->
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">⚡</div>
-            <div class="skill-title">Systems &amp; GPU</div>
-            <div class="skill-sub">C, C++, C#, CUDA, Python, real-time OS, parallel computing</div>
+            <div class="skill-icon" aria-hidden="true">⚙️</div>
+            <div class="skill-title">Modelling &amp; Simulation</div>
+            <div class="skill-sub">Visual Components, KUKA Sim, Robot Studio, RoboDK, MATLAB, Simulink.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">🔬</div>
-            <div class="skill-title">Simulation &amp; Scientific</div>
-            <div class="skill-sub">Python, MATLAB, R, SciPy, Simulink, numerical modelling</div>
+            <div class="skill-icon" aria-hidden="true">🎛️</div>
+            <div class="skill-title">PLC/Control Platforms</div>
+            <div class="skill-sub">Beckhoff TwinCAT 3, Siemens TIA Portal, Rockwell Studio 5000 / ControlLogix.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">🔌</div>
-            <div class="skill-title">Embedded Hardware</div>
-            <div class="skill-sub">Arduino, Raspberry Pi, ESP8266/32, PLC, fieldbus protocols</div>
+            <div class="skill-icon" aria-hidden="true">🖥️</div>
+            <div class="skill-title">SCADA/HMI</div>
+            <div class="skill-sub">WinCC, FactoryTalk View, Ignition, Beckhoff TwinCAT HMI.</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">👁️</div>
-            <div class="skill-title">Perception &amp; Learning</div>
-            <div class="skill-sub">OpenCV, YOLO, TensorFlow, PyTorch, OpenVINO FP16</div>
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <div class="skill-title">Robotics</div>
+            <div class="skill-sub">KUKA (KRC5, WorkVisual), ABB (IRC5), Dobot (CR10A)</div>
           </div>
           <div class="skill-card">
             <div class="skill-icon" aria-hidden="true">📐</div>
             <div class="skill-title">CAD &amp; 3D Assets</div>
-            <div class="skill-sub">SolidWorks, AutoCAD, Blender, OpenUSD, CAM toolpaths</div>
+            <div class="skill-sub">SolidWorks</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">🤖</div>
-            <div class="skill-title">Robot Middleware</div>
-            <div class="skill-sub">ROS, ROS 2, Gazebo, MoveIt, Nav2, OPC UA, asyncua</div>
+            <div class="skill-icon" aria-hidden="true">🌐</div>
+            <div class="skill-title">Networking/Protocols</div>
+            <div class="skill-sub">OPC UA, Profibus DP, Modbus TCP/RTU, DeviceNet, Ethernet/IP, EtherCAT, PROFINET</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">🎮</div>
-            <div class="skill-title">NVIDIA Robotics</div>
-            <div class="skill-sub">Isaac Sim, Isaac Lab, Omniverse, CUDA compute graphs</div>
+            <div class="skill-icon" aria-hidden="true">👁️</div>
+            <div class="skill-title">Machine Vision</div>
+            <div class="skill-sub">YOLO, OpenVINO, Python, C++, OpenCV</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon" aria-hidden="true">✈️</div>
-            <div class="skill-title">Aviation Credentials</div>
-            <div class="skill-sub">Private Pilot, Glider Pilot, Drone Operator (CA + US FAA)</div>
+            <div class="skill-icon" aria-hidden="true">🔌</div>
+            <div class="skill-title">Electrical Design</div>
+            <div class="skill-sub">EPLAN Pro Panel, EPLAN Harness ProD, EPLAN P8</div>
           </div>
 
           <!-- 8 Skill Cards Duplicate (for seamless continuous infinite loop) -->
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">⚡</div>
-            <div class="skill-title">Systems &amp; GPU</div>
-            <div class="skill-sub">C, C++, C#, CUDA, Python, real-time OS, parallel computing</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">⚙️</div>
+            <div class="skill-title">Modelling &amp; Simulation</div>
+            <div class="skill-sub">Visual Components, KUKA Sim, Robot Studio, RoboDK, MATLAB, Simulink.</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">🔬</div>
-            <div class="skill-title">Simulation &amp; Scientific</div>
-            <div class="skill-sub">Python, MATLAB, R, SciPy, Simulink, numerical modelling</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🎛️</div>
+            <div class="skill-title">PLC/Control Platforms</div>
+            <div class="skill-sub">Beckhoff TwinCAT 3, Siemens TIA Portal, Rockwell Studio 5000 / ControlLogix.</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">🔌</div>
-            <div class="skill-title">Embedded Hardware</div>
-            <div class="skill-sub">Arduino, Raspberry Pi, ESP8266/32, PLC, fieldbus protocols</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🖥️</div>
+            <div class="skill-title">SCADA/HMI</div>
+            <div class="skill-sub">WinCC, FactoryTalk View, Ignition, Beckhoff TwinCAT HMI.</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">👁️</div>
-            <div class="skill-title">Perception &amp; Learning</div>
-            <div class="skill-sub">OpenCV, YOLO, TensorFlow, PyTorch, OpenVINO FP16</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <div class="skill-title">Robotics</div>
+            <div class="skill-sub">KUKA (KRC5, WorkVisual), ABB (IRC5), Dobot (CR10A)</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
+          <div class="skill-card">
             <div class="skill-icon" aria-hidden="true">📐</div>
             <div class="skill-title">CAD &amp; 3D Assets</div>
-            <div class="skill-sub">SolidWorks, AutoCAD, Blender, OpenUSD, CAM toolpaths</div>
+            <div class="skill-sub">SolidWorks</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">🤖</div>
-            <div class="skill-title">Robot Middleware</div>
-            <div class="skill-sub">ROS, ROS 2, Gazebo, MoveIt, Nav2, OPC UA, asyncua</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🌐</div>
+            <div class="skill-title">Networking/Protocols</div>
+            <div class="skill-sub">OPC UA, Profibus DP, Modbus TCP/RTU, DeviceNet, Ethernet/IP, EtherCAT, PROFINET</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">🎮</div>
-            <div class="skill-title">NVIDIA Robotics</div>
-            <div class="skill-sub">Isaac Sim, Isaac Lab, Omniverse, CUDA compute graphs</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">👁️</div>
+            <div class="skill-title">Machine Vision</div>
+            <div class="skill-sub">YOLO, OpenVINO, Python, C++, OpenCV</div>
           </div>
-          <div class="skill-card" aria-hidden="true">
-            <div class="skill-icon" aria-hidden="true">✈️</div>
-            <div class="skill-title">Aviation Credentials</div>
-            <div class="skill-sub">Private Pilot, Glider Pilot, Drone Operator (CA + US FAA)</div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🔌</div>
+            <div class="skill-title">Electrical Design</div>
+            <div class="skill-sub">EPLAN Pro Panel, EPLAN Harness ProD, EPLAN P8</div>
           </div>
         </div>
       </div>
@@ -1548,47 +1598,54 @@
           Tools &amp; Platforms</div>
         <div class="marquee-wrap">
           <div class="marquee-track" aria-label="Scrolling list of tools and platforms" role="marquee">
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Ignition SCADA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>ROS 2</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenCV</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>YOLO v8</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenVINO</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Dobot CR10A</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OPC UA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Isaac Sim</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>FSoE Safety</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>SolidWorks</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>CUDA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>PyTorch</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Blender</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Windows IoT</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MATLAB</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MoveIt</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Nav2</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>asyncua</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Matlab_Logo.png" alt="MATLAB" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\KUKA_Logo.png" alt="KUKA" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\ABB_logo.svg" alt="ABB" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\RoboDK_logo.svg" alt="RoboDK" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Beckhoff_Logo.svg" alt="Beckhoff" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Siemens-logo.svg" alt="Siemens" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Rockwell_Automation_logo.svg" alt="Rockwell" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Eplan-logo.png" alt="EPLAN" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Python-logo-notext.svg" alt="Python" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\SOLIDWORKS_Logo.svg" alt="SolidWorks" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images/Logos/National_Instruments_logo_2020.svg" alt="NI" class="logo-img" /></div>
             <!-- Duplicate for loop -->
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Ignition SCADA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>ROS 2</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenCV</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>YOLO v8</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OpenVINO</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Dobot CR10A</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>OPC UA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Isaac Sim</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>FSoE Safety</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>SolidWorks</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>CUDA</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>PyTorch</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Blender</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Windows IoT</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MATLAB</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>MoveIt</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>Nav2</div>
-            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span>asyncua</div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Matlab_Logo.png" alt="MATLAB" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\KUKA_Logo.png" alt="KUKA" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\ABB_logo.svg" alt="ABB" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\RoboDK_logo.svg" alt="RoboDK" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Beckhoff_Logo.svg" alt="Beckhoff" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Siemens-logo.svg" alt="Siemens" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Rockwell_Automation_logo.svg" alt="Rockwell" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Eplan-logo.png" alt="EPLAN" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\Python-logo-notext.svg" alt="Python" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images\Logos\SOLIDWORKS_Logo.svg" alt="SolidWorks" class="logo-img" /></div>
+            <div class="marquee-pill"><span class="marquee-dot" aria-hidden="true"></span><img
+                src="images/Logos/National_Instruments_logo_2020.svg" alt="NI" class="logo-img" /></div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- ═══════ PROJECTS ═══════ -->
@@ -1600,8 +1657,9 @@
           <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-          <p class="section-sub" style="max-width:400px;text-align:left;">Real-world systems delivered across
-            manufacturing, motion control, and AI perception.</p>
+          <p class="section-sub" style="max-width:400px;text-align:left;">Built in the real world, tested on real
+            machines, and occasionally persuaded to work. Proud of every project that turns ambitious ideas into working
+            engineering.</p>
           <div class="slider-controls" aria-label="Project slide navigation">
             <button class="slider-btn" id="proj-prev" aria-label="Previous project">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -1636,7 +1694,7 @@
               Which achieved a consistent coating quality, reduced paint consumption, reduced labour cost and
               improved production efficiency.
             </p>
-            <div class="proj-footer">
+            <!-- <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Robotic Painting Cell & Automated Line">
                 View Details
@@ -1645,7 +1703,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1666,7 +1724,7 @@
               TwinCAT system for precise, compliant multi-axis motion control on a prototype X-ray scanning
               machine.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Motion Development Platform 2 (MDP2)">
                 View Details
@@ -1675,7 +1733,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1695,7 +1753,7 @@
             <p class="proj-desc">Defined control architectures, developed EPLAN schematics, and commissioned a 12-axis
               motion control platform using Siemens and MACH4 for automated aerospace engine inspection.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Next Generation Parts Tools & Methods">
                 View Details
@@ -1704,7 +1762,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1724,7 +1782,7 @@
             <p class="proj-desc">Established a digital twin using Beckhoff TwinCAT 3, OPC UA, and Visual Components to
               validate KUKA and ABB robotic cell motions prior to physical deployment.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Virtual Commissioning for Robotic Cells">
                 View Details
@@ -1733,15 +1791,14 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
         <!-- Project 5 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img" src="images/anomaly-detection.jpg" alt="Autonomous Tool Anomaly Detection"
-              loading="lazy" />
+            <img class="proj-img" src="images\EPSRC\EPSRC.png" alt="Autonomous Tool Anomaly Detection" loading="lazy" />
             <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
           </div>
           <div class="proj-body">
@@ -1753,7 +1810,7 @@
             <p class="proj-desc">Conducted comprehensive machining trials and developed AI models using novel SDMMFA
               techniques to create an autonomous diagnostic tool for machine health monitoring.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Autonomous Tool Anomaly Detection">
                 View Details
@@ -1762,7 +1819,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1781,7 +1838,7 @@
             <p class="proj-desc">Executed experimental machining trials and developed an NMFA approach-based diagnosis
               algorithm to detect and validate real-time tool wear in physical milling applications.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Tool Condition Monitoring">
                 View Details
@@ -1790,14 +1847,14 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
         <!-- Project 7 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img" src="images/r3m.jpg" alt="Reconfigurable Robotics for Responsive Manufacture"
+            <img class="proj-img" src="images/r3m.png" alt="Reconfigurable Robotics for Responsive Manufacture"
               loading="lazy" />
             <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
           </div>
@@ -1810,7 +1867,7 @@
             <p class="proj-desc">Engineered Beckhoff PLC architectures, built advanced EtherCAT networks, and integrated
               KUKA KRC5 robots to deliver a highly flexible robotic control system.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Reconfigurable Robotics (R3M)">
                 View Details
@@ -1819,14 +1876,14 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
         <!-- Project 8 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img" src="images/water-station.jpg" alt="Water Station Rehabilitation" loading="lazy" />
+            <img class="proj-img" src="images/water.gif" alt="Water Station Rehabilitation" loading="lazy" />
             <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
           </div>
           <div class="proj-body">
@@ -1838,7 +1895,7 @@
             <p class="proj-desc">Commissioned resilient automation upgrades using Allen Bradley controllers and Siemens
               Simocode motor panels via Profibus to modernize critical water pumping stations.
             </p>
-            <div class="proj-footer">
+            <!--            <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Water Station Rehabilitation">
                 View Details
@@ -1847,7 +1904,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1882,8 +1939,7 @@
         <!-- Project 10 -->
         <article class="project-card" role="listitem" tabindex="0">
           <div class="proj-img-box">
-            <img class="proj-img" src="images/concrete-prediction.jpg" alt="Concrete Strength Prediction System"
-              loading="lazy" />
+            <img class="proj-img" src="images\concreate.png" alt="Concrete Strength Prediction System" loading="lazy" />
             <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
           </div>
           <div class="proj-body">
@@ -1895,7 +1951,7 @@
             <p class="proj-desc">Implemented AI-driven predictive models utilizing real-time production parameters to
               provide dynamic compressive strength estimations and enhance quality control.
             </p>
-            <div class="proj-footer">
+            <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Concrete Strength Prediction System">
                 View Details
@@ -1904,7 +1960,7 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -1976,10 +2032,11 @@
           </div>
         </div>
 
+
         <!-- Entry 3 -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2023</div>
+            <div class="tl-year">2024</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
@@ -1991,6 +2048,40 @@
               and fault diagnostics. Key researcher on a ~£1M EPSRC-funded project developing autonomous machine tool
               anomaly detection (SDMMFA), and served as Lead Engineer for Tool Condition Monitoring (TCM) in
               collaboration with Mitsubishi Heavy Industries (MHI).</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry even reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-role">Project Engineer (Process Monitoring &amp; Control)</div>
+            <div class="tl-org" style="text-align:right;">AMRC Integrated Manufacturing Group (IMG) &middot; Sheffield
+            </div>
+            <p class="tl-desc" style="text-align:right;">Overseeing the delivery of machine and low-voltage control
+              panel design and commissioning for advanced manufacturing research projects. Providing technical expertise
+              in control systems, hardware architecture (sensors, actuators, safety components), EPLAN Pro Panel
+              schematics, Siemens TIA Portal, Beckhoff TwinCAT 3, and compliance with machinery directives and safety
+              standards.</p>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-year">2023</div>
+          </div>
+        </div>
+        <!-- Entry -->
+        <div class="timeline-entry odd reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-year">2022</div>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-role">MSc in Automation, Control &amp; Robotics</div>
+            <div class="tl-org">Sheffield Hallam University &middot; Distinction</div>
+            <p class="tl-desc">Graduated with distinction. Thesis: Novel ID Assignment Algorithm for Swarm Robotics
+            </p>
           </div>
         </div>
 

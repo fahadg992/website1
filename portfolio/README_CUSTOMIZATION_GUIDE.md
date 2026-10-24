@@ -83,6 +83,7 @@ Search for: `<!-- ═══════ HERO ═══════ -->` (~Line 1
   <h1 class="hero-title">Robotics &amp; Automation Engineer</h1>
   ```
 - **Hero Bio / Subtitle**: Edit text inside `<p class="hero-sub">...</p>`.
+- **Typing Animation**: The subtitle now uses a typing effect via `<span id="typed-hero"></span>` and a script block (see `index.html`).
 
 ### Hero Portrait Photo & Position Controls:
 The portrait photo stays fixed in the background while scrolling and smoothly blurs. It is rendered around **Line 1347**:
