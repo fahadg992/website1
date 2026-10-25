@@ -1184,9 +1184,11 @@
       background: rgba(22, 22, 22, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.068);
       border-radius: 16px;
-      padding: 26px 20px 20px;
+      padding: 56px 20px 20px;
+      /* was 26px 20px 20px */
       position: relative;
-      margin-top: 24px;
+      margin-top: 44px;
+      /* was 24px */
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       transition: border-color 0.25s, transform 0.25s;
@@ -1199,13 +1201,16 @@
 
     .testi-avatar {
       position: absolute;
-      top: -24px;
-      left: 22px;
-      width: 48px;
-      height: 48px;
+      top: -40px;
+      /* half of the height, so it overlaps the card edge */
+      left: 15%;
+      transform: translateX(-50%);
+      width: 80px;
+      /* make bigger or smaller here */
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #181818;
+      border: 3px solid #181818;
       outline: 2px solid rgba(200, 169, 110, 0.28);
       filter: grayscale(75%);
     }
@@ -1520,7 +1525,7 @@
           }
         </style>
         <script>
-          const heroText = "Manchester-based Automation and Robotics Engineer with an MSc degree in Control and Robotics, 8+ years of experience, and a habit of making machines do the hard work. I mix AI, industrial automation, and advanced R&D, basically teaching robots to work so humans can supervise them. Proudly recognised as a Global Talent by the UKRI (UK Research and Innovation).";
+          const heroText = "Manchester-based Automation and Robotics Engineer with an MSc degree in Control and Robotics, 7+ years of experience, and a habit of making machines do the hard work. I mix AI, industrial automation, and advanced R&D, basically teaching robots to work so humans can supervise them. Proudly recognised as a Global Talent by the UKRI (UK Research and Innovation).";
           const heroWords = heroText.split(' ');
           let heroIdx = 0;
           function typeHero() {
@@ -1546,7 +1551,7 @@
         </div>
         <div class="stat-row reveal" style="animation:none;">
           <div class="stat-card">
-            <div class="stat-num">8+</div>
+            <div class="stat-num">7+</div>
             <div class="stat-lbl">Years Exp.</div>
           </div>
           <div class="stat-card">
@@ -1571,8 +1576,9 @@
     <div class="container">
       <div style="max-width:540px; margin-bottom:24px;" class="reveal">
         <span class="section-label">Expertise</span>
-        <h2 id="skills-heading" class="section-title">Technical Skills</h2>
-        <p class="section-sub">A certified technical skillset encompassing robotics, AI, and industrial control systems.
+        <h2 id="skills-heading" class="section-title">From Wires to AI, I Make Things Work</h2>
+        <p class="section-sub">Robotics, industrial control, machine integration, and AI, all in one engineering
+          toolbox.
         </p>
       </div>
 
@@ -1731,9 +1737,9 @@
           <h2 id="projects-heading" class="section-title">Featured<br />Projects</h2>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-          <p class="section-sub" style="max-width:400px;text-align:left;">Built in the real world, tested on real
-            machines, and occasionally persuaded to work. Proud of every project that turns ambitious ideas into working
-            engineering.</p>
+          <p class="section-sub" style="max-width:400px;text-align:left;">Ideas are easy. Making them work is the fun
+            part. From industrial automation and robotics to AI-driven engineering, these are real-world projects I’ve
+            had the pleasure of bringing to life.</p>
           <div class="slider-controls" aria-label="Project slide navigation">
             <button class="slider-btn" id="proj-prev" aria-label="Previous project">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -1850,12 +1856,13 @@
                 <span class="proj-cat">Quality Control & Automation</span>
                 <span class="proj-year">2025</span>
               </div>
-              <h3 class="proj-title">MUSIC - Manufacturing Unequalled by Sustainable Innovation & Cost</h3>
+              <h3 class="proj-title">MUSIC (Rolls-Royce) - Manufacturing Unequalled by Sustainable Innovation & Cost
+              </h3>
               <p class="proj-desc">In an Aerospace Technology Institute (ATI) funded project led by Rolls-Royce in
                 collaboration with the AMRC, the goal was to develop an automated inspection system utilising
                 machine vision to inspect Rolls-Royce Trent XWB airplane engine componenets. As the Machine Integration
                 Engineer on the project,
-                we delivered a 12-axis motion control platform for the inspection cell. Working
+                we delivered a 12-axis motion control system for the inspection cell. Working
                 alongside the engineering team, I defined the complete control system architecture, authored the
                 functional
                 description document, conducted comprehensive risk assessments, designed compliant electrical schematics
@@ -1926,7 +1933,46 @@
             </div>
           </article>
 
-          <!-- Project 5 -->
+
+          <!-- Project 6 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/mitsubishi.gif" alt="Tool Condition Monitoring" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC & Mitsubishi">AMRC & Mitsubishi</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Predictive Maintenance & AI</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <h3 class="proj-title">Tool Condition Monitoring (TCM) with Mitsubishi Heavy Industries</h3>
+              <p class="proj-desc">In a targeted project with Mitsubishi Heavy Industries (MHI) to detect tool wear in
+                industrial milling applications, my team and I were tasked with developing real-time Tool Condition
+                Monitoring (TCM) technologies. Serving as Lead Engineer, I collaborated with the Process Monitoring &
+                Control team to define project requirements, design and execute extensive machining trials to capture
+                multi-sensor data, and engineer an NMFA-based diagnosis algorithm to detect flank wear. We successfully
+                validated the algorithm's performance for real-time application scenarios and provided MHI with
+                technical
+                recommendations for future deployment.
+                <br />
+                <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
+                  target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
+              </p>
+              <!--             <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Tool Condition Monitoring">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div> -->
+            </div>
+          </article>
+
+
+          <!-- Project Autonomous Tool Anomaly Detection -->
           <article class="project-card" role="listitem" tabindex="0">
             <div class="proj-img-box">
               <img class="proj-img" src="images\EPSRC\EPSRC.png" alt="Autonomous Tool Anomaly Detection"
@@ -1935,7 +1981,7 @@
             </div>
             <div class="proj-body">
               <div class="proj-meta">
-                <span class="proj-cat">AI & Machine Health Monitoring</span>
+                <span class="proj-cat">Predictive Maintenance & AI</span>
                 <span class="proj-year">2023</span>
               </div>
               <h3 class="proj-title">Autonomous Tool Anomaly Detection</h3>
@@ -1962,45 +2008,8 @@
 
           </article>
 
-          <!-- Project 6 -->
-          <article class="project-card" role="listitem" tabindex="0">
-            <div class="proj-img-box">
-              <img class="proj-img" src="images/mitsubishi.gif" alt="Tool Condition Monitoring" loading="lazy" />
-              <div class="proj-pill" aria-label="Category: AMRC & Mitsubishi">AMRC & Mitsubishi</div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-meta">
-                <span class="proj-cat">Predictive Maintenance & AI</span>
-                <span class="proj-year">2023</span>
-              </div>
-              <h3 class="proj-title">Tool Condition Monitoring</h3>
-              <p class="proj-desc">In a targeted project with Mitsubishi Heavy Industries (MHI) to detect tool wear in
-                industrial milling applications, my team and I were tasked with developing real-time Tool Condition
-                Monitoring (TCM) technologies. Serving as Lead Engineer, I collaborated with the Process Monitoring &
-                Control team to define project requirements, design and execute extensive machining trials to capture
-                multi-sensor data, and engineer an NMFA-based diagnosis algorithm to detect flank wear. We successfully
-                validated the algorithm's performance for real-time application scenarios and provided MHI with
-                technical
-                recommendations for future deployment.
-                <br />
-                <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
-                  target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
-              </p>
-              <!--             <div class="proj-footer">
-              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Tool Condition Monitoring">
-                View Details
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div> -->
-            </div>
-          </article>
-
           <!-- Project 7 -->
-          <article class="project-card" role="listitem" tabindex="0">
+          <!--           <article class="project-card" role="listitem" tabindex="0">
             <div class="proj-img-box">
               <img class="proj-img" src="images/r3m.png" alt="Reconfigurable Robotics for Responsive Manufacture"
                 loading="lazy" />
@@ -2016,9 +2025,49 @@
                 integrated
                 KUKA KRC5 robots to deliver a highly flexible robotic control system.
               </p>
-              <!--             <div class="proj-footer">
+                          <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Reconfigurable Robotics (R3M)">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div> 
+        </div>
+        </article> -->
+
+
+
+          <!-- Project 11 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/MSc/Msc.jfif" alt="IDs Assignments in Multi robot systems"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Sheffield Hallam University">Sheffield Hallam University
+              </div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Swarm Robotics</span>
+                <span class="proj-year">2023</span>
+              </div>
+              <h3 class="proj-title">IDs Assignments in Multi robot systems</h3>
+              <p class="proj-desc">As a requiuermnt for my Msc dissertation, and in the context of swarm robotics,
+                effective robot identification and coordination
+                are critical for mission success. I developed a novel ID assignment algorithm to address the challenge
+                of efficiently assigning unique identifiers to a group of robots within a shared environment. This
+                algorithm
+                enables seamless communication and collaboration among robots, ensuring that each unit can be
+                unambiguously identified and controlled. The approach was validated through simulations, demonstrating
+                its
+                effectiveness in dynamic multi-robot scenarios and providing a foundation for future swarm intelligence
+                applications.
+              </p>
+              <!--             <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for IDs Assignments in Multi robot systems">
                 View Details
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   aria-hidden="true">
@@ -2029,7 +2078,79 @@
             </div>
           </article>
 
-          <!-- Project 8 -->
+          <!-- Project Karasta -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/karasta/karasta.jfif" alt="Karsta, Material Handling Control System"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Process Control</span>
+                <span class="proj-year">2021</span>
+              </div>
+              <h3 class="proj-title">Karsta, Material Handling Control System </h3>
+              <p class="proj-desc">I was proud to have contributed to the launch of KARASTA,it was a new product line
+                for Holcim cement plant in Iraq, supporting the programming, commissioning, and operation of a new
+                material transportation system comprising conveyor belts, bins, weigh feeders, Siemens ET 200 remote
+                I/O, and
+                motor control centres (MCCs). My responsibility in this project was on developing and integrating
+                Rockwell ControlLogix PLCs and FactoryTalk HMI systems to ensure reliable operation and smooth
+                production.
+                Working closely with the process and production teams, we delivered all automation activities in-house,
+                avoiding external contractors, reducing project costs, and strengthening internal technical expertise
+                while
+                improving process quality and production efficiency.
+              </p>
+              <!-- <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Mill Master, High level Control System (HLC)">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>-->
+            </div>
+          </article>
+
+          <!-- Project HLC -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/hlc.gif" alt="Mill Master High-Level Control System" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">MPC and Advanced Control</span>
+                <span class="proj-year">2021</span>
+              </div>
+              <h3 class="proj-title">Mill Master, High level Control System (HLC)</h3>
+              <p class="proj-desc">Aiming to maximize throughput and energy efficiency in cement milling operations, our
+                team sought to implement intelligent high-level control into the existing plant automation architecture.
+                I
+                integrated a smart fuzzy logic control system developed in LabVIEW directly into the plant's main
+                Allen-Bradley PLCs using OPC communications for real-time data exchange. This integration successfully
+                enabled automated, real-time optimization of cement milling processes, stabilizing mill loads and
+                improving production consistency.
+              </p>
+              <!-- <div class="proj-footer">
+              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
+                aria-label="View details for Mill Master, High level Control System (HLC)">
+                View Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>-->
+            </div>
+          </article>
+
+
+          <!-- Project Water Station Rehabilitation -->
           <article class="project-card" role="listitem" tabindex="0">
             <div class="proj-img-box">
               <img class="proj-img" src="images/water.gif" alt="Water Station Rehabilitation" loading="lazy" />
@@ -2037,8 +2158,8 @@
             </div>
             <div class="proj-body">
               <div class="proj-meta">
-                <span class="proj-cat">PLC Automation</span>
-                <span class="proj-year">2019</span>
+                <span class="proj-cat">Process Automation</span>
+                <span class="proj-year">2020</span>
               </div>
               <h3 class="proj-title">Water Station Rehabilitation</h3>
               <p class="proj-desc">To modernise critical plant infrastructure at the Holcim cement plant located in
@@ -2065,40 +2186,8 @@
             </div>
           </article>
 
-          <!-- Project 9 -->
-          <article class="project-card" role="listitem" tabindex="0">
-            <div class="proj-img-box">
-              <img class="proj-img" src="images/hlc.gif" alt="Mill Master High-Level Control System" loading="lazy" />
-              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
-            </div>
-            <div class="proj-body">
-              <div class="proj-meta">
-                <span class="proj-cat">MPC and Advanced Control</span>
-                <span class="proj-year">2019</span>
-              </div>
-              <h3 class="proj-title">Mill Master, High level Control System (HLC)</h3>
-              <p class="proj-desc">Aiming to maximize throughput and energy efficiency in cement milling operations, our
-                team sought to implement intelligent high-level control into the existing plant automation architecture.
-                I
-                integrated a smart fuzzy logic control system developed in LabVIEW directly into the plant's main
-                Allen-Bradley PLCs using OPC communications for real-time data exchange. This integration successfully
-                enabled automated, real-time optimization of cement milling processes, stabilizing mill loads and
-                improving production consistency.
-              </p>
-              <!-- <div class="proj-footer">
-              <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
-                aria-label="View details for Mill Master, High level Control System (HLC)">
-                View Details
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>-->
-            </div>
-          </article>
 
-          <!-- Project 10 -->
+          <!-- Project Concrete Strength Prediction System -->
           <article class="project-card" role="listitem" tabindex="0">
             <div class="proj-img-box">
               <img class="proj-img" src="images\concreate.png" alt="Concrete Strength Prediction System"
@@ -2152,14 +2241,14 @@
       <div style="text-align:center;margin-bottom:80px;" class="reveal">
         <span class="section-label">Career</span>
         <h2 id="experience-heading" class="section-title">Experience</h2>
-        <p class="section-sub" style="max-width:400px;margin:0 auto;">A decade of engineering milestones across
-          research, industry, and advanced manufacturing.</p>
+        <p class="section-sub" style="max-width:400px;margin:0 auto;">Grateful to have worked on these opportunities
+          across research, industry, and advanced manufacturing.</p>
       </div>
 
       <div class="timeline-wrap">
         <div class="timeline-spine" aria-hidden="true"></div>
 
-        <!-- Entry 1 -->
+        <!-- Automation and Robotics Lead Engineer -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-year">2026</div>
@@ -2171,122 +2260,212 @@
           <div class="tl-right">
             <div class="tl-role">Automation and Robotics Lead Engineer</div>
             <div class="tl-org">Heyside Group &middot; Manchester</div>
-            <p class="tl-desc">Leading technical design, development, simulation, and commissioning of an integrated
-              automated production line for heavy-duty post-moulding processes (including automated painting, cooling,
-              stemming, and sorting systems). Designing and programming robust PLC/SCADA systems, and implementing
-              computer vision and AI/ML algorithms (YOLO, pose estimation) for automated component identification and
-              real-time defect detection.</p>
+            <p class="tl-desc">Heyside is an SME specialising in recycled plastic manufacturing, where I have the
+              opportunity to lead plant-wide automation as part of an Innovate UK KTP with the University of Salford. My
+              work focuses on developing an automation strategy, identifying production bottlenecks, and delivering
+              solutions across robotic painting, automated palletising, and press machine integration to improve
+              efficiency, reduce waste, and increase production throughput.</p>
           </div>
         </div>
 
-        <!-- Entry 2 -->
+        <!--  Machine Integration Engineer (Electrical &amp; Automation)-->
         <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-role">Machine Integration Engineer (Electrical &amp; Automation)</div>
-            <div class="tl-org" style="text-align:right;">AMRC Integrated Manufacturing Group (IMG) &middot; Sheffield
+            <div class="tl-org" style="text-align:right;">AMRC &middot; Sheffield
             </div>
-            <p class="tl-desc" style="text-align:right;">Overseeing the delivery of machine and low-voltage control
-              panel design and commissioning for advanced manufacturing research projects. Providing technical expertise
-              in control systems, hardware architecture (sensors, actuators, safety components), EPLAN Pro Panel
-              schematics, Siemens TIA Portal, Beckhoff TwinCAT 3, and compliance with machinery directives and safety
-              standards.</p>
+            <p class="tl-desc" style="text-align:right;">During this period, my work was primarily hands-on, focusing on
+              electrical design, control panel development, and
+              commissioning for advanced manufacturing research rigs and robotics cells. My responsibilities included
+              hardware
+              architecture, EPLAN Pro Panel schematics, machine-level control system design, PLC programming using
+              Siemens TIA Portal and Beckhoff TwinCAT 3, and machinery safety engineering. It was also a privilege to
+              contribute to major projects such as MUSIC, supporting AMRC’s industrial partners in developing and
+              integrating advanced manufacturing technologies.</p>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-year">2025</div>
+            <div class="tl-year">2025 &mdash; 2026 </div>
           </div>
         </div>
 
 
-        <!-- Entry 3 -->
+        <!-- Research Engineer -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2024</div>
+            <div class="tl-year">2024 &mdash; 2025</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
             <div class="tl-role">Research Engineer (Process Monitoring &amp; Control)</div>
-            <div class="tl-org">Advanced Manufacturing Research Centre (AMRC) &middot; Sheffield</div>
-            <p class="tl-desc">Applied signal analysis and machine learning techniques for industrial process monitoring
-              and fault diagnostics. Key researcher on a ~£1M EPSRC-funded project developing autonomous machine tool
-              anomaly detection (SDMMFA), and served as Lead Engineer for Tool Condition Monitoring (TCM) in
-              collaboration with Mitsubishi Heavy Industries (MHI).</p>
+            <div class="tl-org">AMRC &middot; Sheffield</div>
+            <p class="tl-desc">Following my promotion to Research Engineer (Process Monitoring & Control), I
+              focused on applying signal processing and machine learning techniques to industrial process monitoring
+              and fault diagnostics. One of the highlights was my role as a key researcher on a Tool Condition
+              Monitoring (TCM) project in collaboration with Mitsubishi Heavy Industries (MHI), developing data-driven
+              approaches to improve machining performance and detect tool wear. It was a rewarding period filled with
+              valuable research, collaboration, and hands-on engineering challenges.</p>
           </div>
         </div>
-
+        <!-- Project Engineer (Process Monitoring & Control) -->
         <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-role">Project Engineer (Process Monitoring &amp; Control)</div>
-            <div class="tl-org" style="text-align:right;">AMRC Integrated Manufacturing Group (IMG) &middot; Sheffield
+            <div class="tl-org" style="text-align:right;">AMRC &middot; Sheffield
             </div>
-            <p class="tl-desc" style="text-align:right;">Overseeing the delivery of machine and low-voltage control
-              panel design and commissioning for advanced manufacturing research projects. Providing technical expertise
-              in control systems, hardware architecture (sensors, actuators, safety components), EPLAN Pro Panel
-              schematics, Siemens TIA Portal, Beckhoff TwinCAT 3, and compliance with machinery directives and safety
-              standards.</p>
+            <p class="tl-desc" style="text-align:right;">The Advanced Manufacturing Research Centre (AMRC) at the
+              University of Sheffield is a world-class centre for industrial research and innovation, working with
+              industry partners to develop advanced manufacturing technologies. After completing my MSc in Automation,
+              Control & Robotics, I had the opportunity to join the AMRC, marking my entry into the world of R&D.
+              Building on my previous experience in process monitoring and industrial control at Holcim’s cement plant,
+              I expanded my expertise through projects involving MATLAB, simulation, robotics, predictive maintenance,
+              machine learning, and advanced manufacturing, bridging industrial experience with research and innovation.
+            </p>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-year">2023</div>
+            <div class="tl-year">2023 &mdash; 2024</div>
           </div>
         </div>
-        <!-- Entry -->
+        <!-- MSc in Automation, Control -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2022</div>
+            <div class="tl-year">2022 &mdash; 2023</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
             <div class="tl-role">MSc in Automation, Control &amp; Robotics</div>
-            <div class="tl-org">Sheffield Hallam University &middot; Distinction</div>
-            <p class="tl-desc">Graduated with distinction. Thesis: Novel ID Assignment Algorithm for Swarm Robotics
+            <div class="tl-org">Sheffield Hallam University &middot; Sheffield</div>
+            <p class="tl-desc">To advance my expertise in automation control and robotics, I completed an intensive,
+              hands-on MSc course at Sheffield Hallam University that delivered valuable technical experience. For my
+              master's thesis, I developed a novel ID assignment algorithm for swarm robotics, "IDs Assignments in Multi
+              robot systems," ultimately graduated
+              with Distinction.
             </p>
           </div>
         </div>
 
-        <!-- Entry 4 -->
+        <!-- Senior Automation Engineer -->
         <div class="timeline-entry even reveal" role="listitem">
           <div class="tl-left">
             <div class="tl-role">Senior Automation Engineer</div>
-            <div class="tl-org" style="text-align:right;">Holcim Cement Plant &middot; LafargeHolcim</div>
-            <p class="tl-desc" style="text-align:right;">Managed the operation of plant-wide control systems, including
-              Rockwell ControlLogix PLCs, FactoryTalk SE SCADA, Siemens RTUs, and Profibus DP / Ethernet/IP networks.
-              Delivered major automation upgrades including Water Station PLC rehabilitation and MillMaster fuzzy logic
-              milling optimization using LabVIEW and OPC communication.</p>
+            <div class="tl-org" style="text-align:right;">Holcim &middot; Iraq</div>
+            <p class="tl-desc" style="text-align:right;">Following strong performance during my first year, I was
+              promoted to Senior Automation Engineer, taking on greater responsibility for plant-wide automation and
+              process optimisation. I managed control systems and my key achievements included rehabilitating and
+              integration of the
+              Water Station to the main plant PLC system and implementing MillMaster fuzzy-logic control for cement mill
+              production optimisation.</p>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
-            <div class="tl-year">2019</div>
+            <div class="tl-year">2020 &mdash; 2021</div>
           </div>
         </div>
 
-        <!-- Entry 5 -->
+        <!-- Automation Engineer -->
         <div class="timeline-entry odd reveal" role="listitem">
           <div class="tl-left">
-            <div class="tl-year">2015</div>
+            <div class="tl-year">2019 &mdash; 2020</div>
           </div>
           <div class="tl-center">
             <div class="tl-node" aria-hidden="true"></div>
           </div>
           <div class="tl-right">
+            <div class="tl-role">Automation Engineer</div>
+            <div class="tl-org">Holcim &middot; Iraq</div>
+            <p class="tl-desc">Holcim is a Switzerland-based global leader in building materials and sustainable
+              construction, operating across dozens of countries. Being part of its team in Iraq was a proud starting
+              point for my engineering career, giving me the opportunity to work within a globally recognised
+              organisation and contribute to cement manufacturing operations. As an Automation Engineer, I joined the
+              team responsible for operating, troubleshooting, and maintaining plant-wide control systems. Working with
+              Rockwell ControlLogix PLCs, FactoryTalk SE SCADA, Siemens RTUs, and industrial communication networks, I
+              built a strong foundation in process monitoring and industrial automation.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Warth -->
+        <div class="timeline-entry even reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-role">Control Systems Engineer</div>
+            <div class="tl-org" style="text-align:right;">WARTH &middot; Iraq</div>
+            <p class="tl-desc" style="text-align:right;">
+              WARTH specialises in HVAC system manufacturing and industrial solutions in Iraq. I was appointed to
+              support the development of a new manufacturing site in Karbala, focused on producing home appliances and
+              HVAC systems. My contributions included preparing technical specifications and functional requirements for
+              production equipment, such as HVAC assembly line stations for coil assembly, tube bending, and unit
+              testing, developing PLC control programs using Siemens TIA Portal, and implementing LabVIEW-based testing
+              solutions to validate equipment performance and product quality.
+            </p>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-year">2017 &mdash; 2019</div>
+          </div>
+        </div>
+
+
+        <!-- SABAH -->
+        <div class="timeline-entry odd reveal" role="listitem">
+          <div class="tl-left">
+            <div class="tl-year">2016 &mdash; 2017</div>
+          </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-role">Graduate Automation Engineer</div>
+            <div class="tl-org">SABAH &middot; Iraq</div>
+            <p class="tl-desc">
+              SABAH was my starting point in the industrial automation industry, an Iraqi start-up specialising in
+              industrial control panel manufacturing for local clients, particularly in the food and beverage sector. It
+              was here that I first gained hands-on experience with PLC systems and variable frequency drives (VFDs),
+              developing my foundational knowledge of industrial control, electrical systems, and automation. During
+              this
+              time, I had the opportunity to support the development of control panel solutions, improve automation
+              systems, and contribute to the growth of local companies while building the technical skills that shaped
+              my engineering career.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- BSc in Control and Systems Engineering -->
+        <div class="timeline-entry even reveal" role="listitem">
+          <div class="tl-left">
             <div class="tl-role">BSc in Control and Systems Engineering - Mechatronics</div>
-            <div class="tl-org">University of Technology Baghdad &middot; Distinction</div>
-            <p class="tl-desc">Graduated with distinction. Final-year project focused on path planning and obstacle
+            <div class="tl-org" style="text-align:right;">University of Technology Baghdad &middot; Distinction</div>
+            <p class="tl-desc" style="text-align:right;">Graduated with distinction. Final-year project focused on path
+              planning and obstacle
               avoidance in mobile robotics applications. Later completed MSc in Automation, Control &amp; Robotics at
               Sheffield Hallam University with distinction (Thesis: Novel ID Assignment Algorithm for Swarm Robotics).
             </p>
           </div>
+          <div class="tl-center">
+            <div class="tl-node" aria-hidden="true"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-year">2011 &mdash; 2015</div>
+          </div>
         </div>
+
+
+
+
 
       </div>
     </div>
@@ -2305,65 +2484,63 @@
       <div class="testi-grid">
 
         <div class="testi-card reveal d1">
-          <img class="testi-avatar"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
-            alt="Dr. James Hartley" loading="lazy" />
+          <img class="testi-avatar" src="images/recomindation/pablo.jfif" alt="Dr. Pablo Jaramillo Cevallos"
+            loading="lazy" />
           <div class="testi-header">
-            <div class="testi-name">Dr. James Hartley</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
-              aria-label="LinkedIn profile of Dr. James Hartley">
+            <div class="testi-name">Dr. Pablo Jaramillo Cevallos</div>
+            <a href="https://www.linkedin.com/in/pablo-jaramillo-cevallos/" target="_blank" rel="noopener noreferrer"
+              class="testi-linkedin" aria-label="LinkedIn profile of Dr. Pablo Jaramillo Cevallos">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
                 <path
                   d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
-          <div class="testi-title">Principal Research Engineer &middot; AMRC</div>
+          <div class="testi-title">Research Engineer &middot; AMRC</div>
           <blockquote class="testi-quote">
             "Fahad brings a rare combination of deep theoretical knowledge and practical engineering instinct. His work
-            on the motion platform was technically exceptional and delivered on time."
+            on the MUSIC project with Rolls Royce was technically exceptional and delivered on time."
           </blockquote>
         </div>
 
         <div class="testi-card reveal d2">
-          <img class="testi-avatar"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
-            alt="Dr. Sarah Okafor" loading="lazy" />
+          <img class="testi-avatar" src="images/recomindation/Zyead.jfif" alt="Dr. Zeyad Al-Shibaany" loading="lazy" />
           <div class="testi-header">
-            <div class="testi-name">Dr. Sarah Okafor</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
-              aria-label="LinkedIn profile of Dr. Sarah Okafor">
+            <div class="testi-name">Dr. Zeyad Al-Shibaany</div>
+            <a href="https://www.linkedin.com/in/zeyad-yousif/" target="_blank" rel="noopener noreferrer"
+              class="testi-linkedin" aria-label="LinkedIn profile of Dr. Zeyad Al-Shibaany">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
                 <path
                   d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
-          <div class="testi-title">Senior Lecturer in Robotics &middot; Sheffield</div>
+          <div class="testi-title">Associate Director for Digital and Intelligent Systems &middot; UWE Bristol</div>
           <blockquote class="testi-quote">
-            "One of the most technically versatile engineers I've supervised — his vision pipeline project was
-            industry-leading and forms the foundation of ongoing research at the department."
+            "Fahad is a very strong engineer with a solid foundation in both theoretical concepts and practical
+            implementation, we worked togeather in collabritve projects and he is excelling in areas such as
+            machine learning, robotics, and control systems. His proactive
+            approach to learning and problem-solving consistently impressed me."
           </blockquote>
         </div>
 
         <div class="testi-card reveal d3">
-          <img class="testi-avatar"
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&q=80&auto=format&fit=crop&crop=face"
-            alt="Marcus Webb" loading="lazy" />
+          <img class="testi-avatar" src="images\recomindation\hussain.jfif" alt="Hussein Khaddam" loading="lazy" />
           <div class="testi-header">
-            <div class="testi-name">Marcus Webb</div>
-            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="testi-linkedin"
-              aria-label="LinkedIn profile of Marcus Webb">
+            <div class="testi-name">Hussein Khaddam</div>
+            <a href="https://www.linkedin.com/in/hussein-khaddam-1a431b59/" target="_blank" rel="noopener noreferrer"
+              class="testi-linkedin" aria-label="LinkedIn profile of Hussein Khaddam">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
                 <path
                   d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
               </svg>
             </a>
           </div>
-          <div class="testi-title">Manufacturing Director &middot; KTP Partner</div>
+          <div class="testi-title">OT Manager &middot; Delta cement</div>
           <blockquote class="testi-quote">
-            "Fahad transformed our painting cell from manual operation to a fully integrated autonomous system. ROI was
-            clear within the first quarter and reliability has been outstanding."
+            "Fahad was my colleague at Holcim, where he worked on improving cement mill performance by implementing
+            advanced control systems. His work helped optimise cement production and reduce energy consumption. He is a
+            skilled engineer with strong technical expertise and a proactive approach to solving industrial challenges."
           </blockquote>
         </div>
 
@@ -2386,7 +2563,7 @@
           talk.
         </p>
         <div class="cta-actions" style="position:relative;">
-          <a href="mailto:fahad@example.com" class="btn-primary" id="cta-email"
+          <a href="mailto:fahadg992@gmail.com" class="btn-primary" id="cta-email"
             style="padding:14px 30px;font-size:15px;">
             Send an Email
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -2394,8 +2571,8 @@
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-ghost" id="cta-linkedin"
-            style="padding:14px 30px;font-size:15px;">
+          <a href="https://www.linkedin.com/in/fahds007/" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+            id="cta-linkedin" style="padding:14px 30px;font-size:15px;">
             LinkedIn Profile
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               aria-hidden="true">
@@ -2418,7 +2595,7 @@
         </div>
       </div>
 
-      <nav class="footer-links" aria-label="Social and contact links">
+      <!--       <nav class="footer-links" aria-label="Social and contact links">
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link"
           aria-label="LinkedIn profile">LinkedIn</a>
         <div class="footer-sep" aria-hidden="true"></div>
@@ -2429,7 +2606,7 @@
           aria-label="Twitter profile">Twitter</a>
         <div class="footer-sep" aria-hidden="true"></div>
         <a href="mailto:fahad@example.com" class="footer-link" aria-label="Send email">Email</a>
-      </nav>
+      </nav> -->
 
       <div class="footer-copy">&copy; 2026 Fahad. All rights reserved.</div>
     </div>
@@ -2550,7 +2727,7 @@
     }
 
     function slideProjectsRight() {
-      if (!projSlider || isProjPaused) return;
+      if (!projSlider) return;
       const step = getProjectStep();
       if (projSlider.scrollLeft + projSlider.clientWidth >= projSlider.scrollWidth - 30) {
         projSlider.scrollTo({ left: 0, behavior: 'smooth' });
@@ -2570,7 +2747,7 @@
     }
 
     // Automatically slide to the right every 3.2 seconds
-    // setInterval(slideProjectsRight, 10000);
+    // setInterval(() => { if (!isProjPaused) slideProjectsRight(); }, 10000);
 
     if (projNextBtn) {
       projNextBtn.addEventListener('click', () => {
