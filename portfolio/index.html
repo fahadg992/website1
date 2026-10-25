@@ -2596,29 +2596,40 @@
         setTimeout(() => isProjPaused = false, 3000);
       }, { passive: true });
     }
-    // ─── Mobile slider dots
+
+    // ─── Mobile slider dots (fixed number, independent of project count)
     const projDotsWrap = document.getElementById('proj-dots');
     if (projSlider && projDotsWrap) {
-      const projCards = projSlider.querySelectorAll('.project-card');
+      const DOT_COUNT = 3;   // change this to show more or fewer dashes
 
-      projCards.forEach((card, i) => {
+      function getMaxScroll() {
+        return projSlider.scrollWidth - projSlider.clientWidth;
+      }
+
+      for (let i = 0; i < DOT_COUNT; i++) {
         const dot = document.createElement('button');
         dot.className = 'proj-dot';
-        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        dot.setAttribute('aria-label', 'Go to section ' + (i + 1) + ' of projects');
         dot.addEventListener('click', () => {
-          projSlider.scrollTo({ left: i * getProjectStep(), behavior: 'smooth' });
+          projSlider.scrollTo({
+            left: (i / (DOT_COUNT - 1)) * getMaxScroll(),
+            behavior: 'smooth'
+          });
         });
         projDotsWrap.appendChild(dot);
-      });
+      }
 
       const projDots = projDotsWrap.querySelectorAll('.proj-dot');
 
       function updateProjDots() {
-        const idx = Math.round(projSlider.scrollLeft / getProjectStep());
+        const max = getMaxScroll();
+        const progress = max > 0 ? projSlider.scrollLeft / max : 0;
+        const idx = Math.round(progress * (DOT_COUNT - 1));
         projDots.forEach((d, i) => d.classList.toggle('active', i === idx));
       }
 
       projSlider.addEventListener('scroll', updateProjDots, { passive: true });
+      window.addEventListener('resize', updateProjDots);
       updateProjDots();
     }
     // ─── Scroll reveal
