@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fahad — Robotics &amp; Automation Engineer</title>
   <meta name="description"
-    content="Portfolio of Fahad, a Robotics, Automation, and Industry 4.0 Engineer specialising in cobots, SCADA, computer vision, and motion control systems." />
+    content="Portfolio of Fahad, a Robotics, Automation Engineer specialising in cobots, SCADA, AI, and motion control systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -688,7 +688,7 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marqueeRoll 30s linear infinite;
+      animation: marqueeRoll 30s linear infinite reverse;
     }
 
     .marquee-track:hover {
@@ -1168,16 +1168,81 @@
     }
 
     .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 16px;
-      margin-top: 22px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 50px 4px 8px;
+      /* top padding leaves room for the avatar overhang */
+      cursor: grab;
+    }
+
+    .testi-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testi-grid.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      /* lets the mouse drag move freely */
+      user-select: none;
+    }
+
+    .testi-grid img {
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    /* desktop: 2 cards visible, mobile: 1 card with a peek of the next */
+    .testi-card {
+      flex: 0 0 calc((100% - 16px) / 2);
+      scroll-snap-align: start;
+      margin-top: 0;
+      /* spacing now comes from the grid's top padding */
     }
 
     @media (max-width: 900px) {
-      .testi-grid {
-        grid-template-columns: 1fr;
+      .testi-card {
+        flex: 0 0 85%;
       }
+    }
+
+    .testi-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .testi-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .testi-dot {
+      width: 8px;
+      height: 8px;
+      border: none;
+      border-radius: 999px;
+      padding: 0;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.25);
+      transition: width 0.25s, background 0.25s;
+    }
+
+    .testi-dot.active {
+      width: 24px;
+      background: #C8A96E;
+    }
+
+    .slider-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
     }
 
     .testi-card {
@@ -2402,9 +2467,10 @@
             <div class="tl-role">Control Systems Engineer</div>
             <div class="tl-org" style="text-align:right;">WARTH &middot; Iraq</div>
             <p class="tl-desc" style="text-align:right;">
-              WARTH specialises in HVAC system manufacturing and industrial solutions in Iraq. I was appointed to
+              WARTH specialises in HVAC system manufacturing in Iraq. I was appointed to
               support the development of a new manufacturing site in Karbala, focused on producing home appliances and
-              HVAC systems. My contributions included preparing technical specifications and functional requirements for
+              HVAC systems. My contributions included communicating with suppliers, preparing technical specifications
+              and functional requirements for
               production equipment, such as HVAC assembly line stations for coil assembly, tube bending, and unit
               testing, developing PLC control programs using Siemens TIA Portal, and implementing LabVIEW-based testing
               solutions to validate equipment performance and product quality.
@@ -2517,10 +2583,10 @@
           </div>
           <div class="testi-title">Associate Director for Digital and Intelligent Systems &middot; UWE Bristol</div>
           <blockquote class="testi-quote">
-            "Fahad is a very strong engineer with a solid foundation in both theoretical concepts and practical
-            implementation, we worked togeather in collabritve projects and he is excelling in areas such as
+            "Fahad is a very strong engineer with a solid practical implementation, we worked togeather in collabritve
+            projects and he is excelling in areas such as
             machine learning, robotics, and control systems. His proactive
-            approach to learning and problem-solving consistently impressed me."
+            approach to learning and problem-solving is impressive."
           </blockquote>
         </div>
 
@@ -2539,12 +2605,51 @@
           <div class="testi-title">OT Manager &middot; Delta cement</div>
           <blockquote class="testi-quote">
             "Fahad was my colleague at Holcim, where he worked on improving cement mill performance by implementing
-            advanced control systems. His work helped optimise cement production and reduce energy consumption. He is a
-            skilled engineer with strong technical expertise and a proactive approach to solving industrial challenges."
+            advanced control systems. His work helped improve cement production and reduce energy consumption. He is a
+            skilled engineer with strong practical approach to solving industrial challenges."
+          </blockquote>
+        </div>
+
+        <div class="testi-card reveal d3">
+          <img class="testi-avatar" src="images\recomindation\arthur.jfif" alt="Arthur Kershaw" loading="lazy" />
+          <div class="testi-header">
+            <div class="testi-name">Arthur Kershaw</div>
+            <a href="https://www.linkedin.com/in/arthur-kershaw-4915a446/" target="_blank" rel="noopener noreferrer"
+              class="testi-linkedin" aria-label="LinkedIn profile of Arthur Kershaw">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
+              </svg>
+            </a>
+          </div>
+          <div class="testi-title">Senior Project Engineer &middot; AMRC</div>
+          <blockquote class="testi-quote">
+            "It was a pleasure working with Fahad on MDP2 project at the AMRC. His practical
+            implementation skills, especially in helping us with developing the electrical schimatic in EPLAN and the
+            TwinCAT control system, are top-tier. Fahad is
+            someone who understands the full lifecycle of a project, from concept to execution."
           </blockquote>
         </div>
 
       </div>
+
+      <div class="testi-controls reveal">
+        <button class="slider-btn" id="testi-prev" aria-label="Previous testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <div class="testi-dots" id="testi-dots" aria-label="Testimonial slide indicators"></div>
+        <button class="slider-btn" id="testi-next" aria-label="Next testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+
+
+
     </div>
   </section>
 
@@ -2830,6 +2935,85 @@
     revealEls.forEach(el => {
       if (!el.closest('#hero')) revealObserver.observe(el);
     });
+
+    // ─── Testimonials slider
+    const testiSlider = document.querySelector('.testi-grid');
+    const testiPrev = document.getElementById('testi-prev');
+    const testiNext = document.getElementById('testi-next');
+    const testiDotsWrap = document.getElementById('testi-dots');
+
+    if (testiSlider && testiDotsWrap) {
+      const GAP = 16; // must match the gap in .testi-grid
+
+      function getTestiStep() {
+        const card = testiSlider.querySelector('.testi-card');
+        return card ? card.offsetWidth + GAP : 300;
+      }
+
+      function getTestiMax() {
+        return testiSlider.scrollWidth - testiSlider.clientWidth;
+      }
+
+      function goToTesti(i) {
+        testiSlider.scrollTo({ left: i * getTestiStep(), behavior: 'smooth' });
+      }
+
+      // one dot per scroll position, rebuilt on resize
+      function buildTestiDots() {
+        const count = Math.max(1, Math.round(getTestiMax() / getTestiStep()) + 1);
+        testiDotsWrap.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'testi-dot';
+          dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+          dot.addEventListener('click', () => goToTesti(i));
+          testiDotsWrap.appendChild(dot);
+        }
+        updateTestiUI();
+      }
+
+      function updateTestiUI() {
+        const dots = testiDotsWrap.querySelectorAll('.testi-dot');
+        const max = getTestiMax();
+        const idx = max <= 0 ? 0 : Math.min(dots.length - 1, Math.round(testiSlider.scrollLeft / getTestiStep()));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        if (testiPrev) testiPrev.disabled = testiSlider.scrollLeft <= 5;
+        if (testiNext) testiNext.disabled = testiSlider.scrollLeft >= max - 5;
+      }
+
+      if (testiPrev) testiPrev.addEventListener('click', () =>
+        testiSlider.scrollBy({ left: -getTestiStep(), behavior: 'smooth' }));
+      if (testiNext) testiNext.addEventListener('click', () =>
+        testiSlider.scrollBy({ left: getTestiStep(), behavior: 'smooth' }));
+
+      testiSlider.addEventListener('scroll', updateTestiUI, { passive: true });
+      window.addEventListener('resize', buildTestiDots);
+
+      // mouse drag-to-swipe on desktop (touch already swipes natively)
+      let testiDown = false, testiStartX = 0, testiStartScroll = 0;
+
+      testiSlider.addEventListener('pointerdown', e => {
+        if (e.pointerType !== 'mouse') return;
+        testiDown = true;
+        testiStartX = e.clientX;
+        testiStartScroll = testiSlider.scrollLeft;
+        testiSlider.classList.add('dragging');
+      });
+
+      window.addEventListener('pointermove', e => {
+        if (!testiDown) return;
+        testiSlider.scrollLeft = testiStartScroll - (e.clientX - testiStartX);
+      });
+
+      window.addEventListener('pointerup', () => {
+        if (!testiDown) return;
+        testiDown = false;
+        testiSlider.classList.remove('dragging');
+        goToTesti(Math.round(testiSlider.scrollLeft / getTestiStep())); // snap to nearest card
+      });
+
+      buildTestiDots();
+    }
 
     // ─── Active nav link
     const sections = document.querySelectorAll('section[id]');
