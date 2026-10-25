@@ -1466,13 +1466,15 @@
           }
         </style>
         <script>
-          const heroText = "Manchester-based Automation and Robotics Engineer with an MSc degree in Control and Robotics, 8+ years of experience, and a habit of making machines do the hard work. I mix AI, industrial automation, and advanced R&D, basically teaching robots to work so humans can supervise them. Proudly recognised as a Global Talent by the UKRI (UK Research and Innovation), apparently even my CV passed quality control.";
+          const heroText = "Manchester-based Automation and Robotics Engineer with an MSc degree in Control and Robotics, 8+ years of experience, and a habit of making machines do the hard work. I mix AI, industrial automation, and advanced R&D, basically teaching robots to work so humans can supervise them. Proudly recognised as a Global Talent by the UKRI (UK Research and Innovation).";
+          const heroWords = heroText.split(' ');
           let heroIdx = 0;
           function typeHero() {
-            if (heroIdx < heroText.length) {
-              document.getElementById('typed-hero').textContent += heroText.charAt(heroIdx);
+            if (heroIdx < heroWords.length) {
+              const el = document.getElementById('typed-hero');
+              el.textContent += (heroIdx === 0 ? '' : ' ') + heroWords[heroIdx];
               heroIdx++;
-              setTimeout(typeHero, 30);
+              setTimeout(typeHero, 120);
             }
             // cursor keeps blinking after typing completes
           }
@@ -1973,12 +1975,15 @@
               <span class="proj-year">2019</span>
             </div>
             <h3 class="proj-title">Water Station Rehabilitation</h3>
-            <p class="proj-desc">To modernize critical plant infrastructure at the LafargeHolcim cement plant, my
+            <p class="proj-desc">To modernise critical plant infrastructure at the Holcim cement plant located in Iraq,
+              my
               team and I were responsible for overhauling and automating the facility's water treatment and
-              distribution station. Working with the plant engineering team, I engineered and commissioned a new PLC-
-              based control system using Allen-Bradley (Rockwell ControlLogix) controllers. I interfaced Siemens
-              Simocode motor control units and remote I/O panels over Profibus DP, delivering a resilient automation
-              system aligned with global efficiency and international safety standards.
+              distribution station. Working with the plant engineering team, I engineered and commissioned a new
+              PLC-based control system using Allen-Bradley (Rockwell ControlLogix) controllers.
+              that interfaced with Siemens Simocode motor control units, VFDs and remote I/O panels over Profibus DP,
+              developed PID loops for the pumps and control the screens in plant SCADA system for the operators,
+              delivering a resilient automation system aligned with global efficiency and international safety
+              standards.
             </p>
             <!--            <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
