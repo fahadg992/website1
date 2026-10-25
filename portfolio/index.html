@@ -805,6 +805,60 @@
       transform: scale(1.05);
     }
 
+    .projects-slider-wrap {
+      position: relative;
+    }
+
+    .proj-dots {
+      display: none;
+      /* hidden on desktop, arrows are used there */
+    }
+
+    @media (max-width: 768px) {
+
+      /* hide the arrows on mobile */
+      .slider-controls {
+        display: none;
+      }
+
+      /* dashes centred at the bottom of the image box (image box is 258px tall) */
+      .proj-dots {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: absolute;
+        top: 226px;
+        /* 258px image height minus ~32px */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(14, 14, 14, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .proj-dot {
+        width: 12px;
+        height: 4px;
+        border: none;
+        border-radius: 2px;
+        padding: 0;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.35);
+        transition: width 0.25s, background 0.25s;
+      }
+
+      .proj-dot.active {
+        width: 24px;
+        background: #C8A96E;
+      }
+    }
+
+
+
+
     .project-card {
       flex: 0 0 360px;
       scroll-snap-align: start;
@@ -1695,38 +1749,43 @@
         </div>
       </div>
 
-      <div class="projects-slider reveal" role="list" aria-label="Featured projects">
-        <!-- Project 1 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images\robotic-painting.gif"
-              alt="Robotic Painting Cell and Automated Production Line" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Heyside Group">Heyside Group</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Automation & Robotics</span>
-              <span class="proj-year">2026</span>
+      <div class="projects-slider-wrap">
+        <div class="proj-dots" id="proj-dots" aria-label="Project slide indicators"></div>
+        <div class="projects-slider reveal" role="list" aria-label="Featured projects">
+          <!-- Project 1 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images\robotic-painting.gif"
+                alt="Robotic Painting Cell and Automated Production Line" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Heyside Group">Heyside Group</div>
             </div>
-            <h3 class="proj-title">Robotic Painting Cell</h3>
-            <p class="proj-desc">Through an Innovate UK Knowledge Transfer Partnership (KTP)[1] between Heyside Group
-              and
-              the University of Salford to implement plant-wide automation, I've been appointed to lead the project and
-              identified critical
-              opportunities for process optimization [2]. Targeting the painting process—which suffered from high paint
-              waste and excessive labor costs—I designed and commissioned a complete robotic painting solution. This
-              eliminated material waste, reduced labor costs, and delivered significantly higher coating quality and
-              overall operational efficiency.<br />
-              <a href="https://heysidegroup.com/news-insights/how-heysides-robotics-and-automation-lead-is-supporting-our-strategic-goals/"
-                target="_blank" rel="noopener noreferrer">[1] How Heyside’s Robotics and Automation Lead is supporting
-                our
-                strategic goals. <br />
-                <a href="https://www.salford.ac.uk/news/university-of-salford-announces-five-new-partnerships-to-drive-business-growth-across-the-north-west#:~:text=And%20the%20three%2Dyear%20KTP%20with%20Heyside%20Group%20focuses%20on%20enhancing%20efficiency%2C%20reducing%20waste%20and%20improving%20worker%20safety%20by%20developing%20an%20integrated%20production%20line%20that%20automates%20post%2Dmoulding%20processes.%C2%A0"
-                  target="_blank" rel="noopener noreferrer">[2] University of Salford announces five new partnerships to
-                  drive
-                  business growth across the North West. </a>
-            </p>
-            <!-- <div class="proj-footer">
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Automation & Robotics</span>
+                <span class="proj-year">2026</span>
+              </div>
+              <h3 class="proj-title">Robotic Painting Cell</h3>
+              <p class="proj-desc">Through an Innovate UK Knowledge Transfer Partnership (KTP)[1] between Heyside Group
+                and
+                the University of Salford to implement plant-wide automation, I've been appointed to lead the project
+                and
+                identified critical
+                opportunities for process optimization [2]. Targeting the painting process—which suffered from high
+                paint
+                waste and excessive labor costs—I designed and commissioned a complete robotic painting solution. This
+                eliminated material waste, reduced labor costs, and delivered significantly higher coating quality and
+                overall operational efficiency.<br />
+                <a href="https://heysidegroup.com/news-insights/how-heysides-robotics-and-automation-lead-is-supporting-our-strategic-goals/"
+                  target="_blank" rel="noopener noreferrer">[1] How Heyside’s Robotics and Automation Lead is supporting
+                  our
+                  strategic goals. <br />
+                  <a href="https://www.salford.ac.uk/news/university-of-salford-announces-five-new-partnerships-to-drive-business-growth-across-the-north-west#:~:text=And%20the%20three%2Dyear%20KTP%20with%20Heyside%20Group%20focuses%20on%20enhancing%20efficiency%2C%20reducing%20waste%20and%20improving%20worker%20safety%20by%20developing%20an%20integrated%20production%20line%20that%20automates%20post%2Dmoulding%20processes.%C2%A0"
+                    target="_blank" rel="noopener noreferrer">[2] University of Salford announces five new partnerships
+                    to
+                    drive
+                    business growth across the North West. </a>
+              </p>
+              <!-- <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Robotic Painting Cell & Automated Line">
                 View Details
@@ -1736,36 +1795,37 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/mdp2.gif"
-              alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Motion Control & Automation</span>
-              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
-            <p class="proj-desc"> Adaptix reached out to develop their advancing portable, low-dose 3D X-ray
-              imaging technology. Working alongside my colleagues at the AMRC, I supported the electrical and automation
-              development for a prototype X-ray scanning
-              machine.
-              We implemented a split panel architecture using a slip ring with remote Beckhoff I/O, designed detailed
-              electrical panel schematics in EPLAN, and implemented a Beckhoff TwinCAT control system to drive two
-              servo-driven axes.
-              The project helped providing the high-precision motion control required,
-              accelerating Adaptix's
-              technology development and prototype validation.
-              <br />
-              <a href="https://www.adaptix.com/" target="_blank" rel="noopener noreferrer"> &ndash; About Adaptix</a>
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/mdp2.gif"
+                alt="Motion Development Platform 2 prototype X-ray scanning machine" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Motion Control & Automation</span>
+                <span class="proj-year">2025</span>
+              </div>
+              <h3 class="proj-title">Motion Development Platform 2 (MDP2)</h3>
+              <p class="proj-desc"> Adaptix reached out to develop their advancing portable, low-dose 3D X-ray
+                imaging technology. Working alongside my colleagues at the AMRC, I supported the electrical and
+                automation
+                development for a prototype X-ray scanning
+                machine.
+                We implemented a split panel architecture using a slip ring with remote Beckhoff I/O, designed detailed
+                electrical panel schematics in EPLAN, and implemented a Beckhoff TwinCAT control system to drive two
+                servo-driven axes.
+                The project helped providing the high-precision motion control required,
+                accelerating Adaptix's
+                technology development and prototype validation.
+                <br />
+                <a href="https://www.adaptix.com/" target="_blank" rel="noopener noreferrer"> &ndash; About Adaptix</a>
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Motion Development Platform 2 (MDP2)">
                 View Details
@@ -1775,41 +1835,42 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/rolls-royce.gif" alt="Next Generation Parts Tools & Methods for aerospace"
-              loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC & Rolls-Royce">AMRC & Rolls-Royce</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Quality Control & Automation</span>
-              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">MUSIC - Manufacturing Unequalled by Sustainable Innovation & Cost</h3>
-            <p class="proj-desc">In an Aerospace Technology Institute (ATI) funded project led by Rolls-Royce in
-              collaboration with the AMRC, the goal was to develop an automated inspection system utilising
-              machine vision to inspect Rolls-Royce Trent XWB airplane engine componenets. As the Machine Integration
-              Engineer on the project,
-              we delivered a 12-axis motion control platform for the inspection cell. Working
-              alongside the engineering team, I defined the complete control system architecture, authored the
-              functional
-              description document, conducted comprehensive risk assessments, designed compliant electrical schematics
-              in
-              EPLAN, and commissioned the multi-axis motion system using Siemens and MACH4 technology. This collective
-              effort successfully delivered a high-precision, fully compliant inspection platform, allowing Rolls-Royce
-              to
-              evaluate and deploy advanced automated machine vision inspection techniques within their manufacturing
-              facilities.
-              <br />
-              <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
-                target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/rolls-royce.gif"
+                alt="Next Generation Parts Tools & Methods for aerospace" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC & Rolls-Royce">AMRC & Rolls-Royce</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Quality Control & Automation</span>
+                <span class="proj-year">2025</span>
+              </div>
+              <h3 class="proj-title">MUSIC - Manufacturing Unequalled by Sustainable Innovation & Cost</h3>
+              <p class="proj-desc">In an Aerospace Technology Institute (ATI) funded project led by Rolls-Royce in
+                collaboration with the AMRC, the goal was to develop an automated inspection system utilising
+                machine vision to inspect Rolls-Royce Trent XWB airplane engine componenets. As the Machine Integration
+                Engineer on the project,
+                we delivered a 12-axis motion control platform for the inspection cell. Working
+                alongside the engineering team, I defined the complete control system architecture, authored the
+                functional
+                description document, conducted comprehensive risk assessments, designed compliant electrical schematics
+                in
+                EPLAN, and commissioned the multi-axis motion system using Siemens and MACH4 technology. This collective
+                effort successfully delivered a high-precision, fully compliant inspection platform, allowing
+                Rolls-Royce
+                to
+                evaluate and deploy advanced automated machine vision inspection techniques within their manufacturing
+                facilities.
+                <br />
+                <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
+                  target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Next Generation Parts Tools & Methods">
                 View Details
@@ -1819,39 +1880,40 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/digital-twin.gif" alt="Virtual Commissioning for Robotic Cells"
-              loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Digital Twin & Virtual Commissioning</span>
-              <span class="proj-year">2025</span>
             </div>
-            <h3 class="proj-title">De-Risking Virtual Commissioning for Robotic Cells</h3>
-            <p class="proj-desc">Funded by AMRC tier-1 industrial members including Boeing, Airbus, and BAE
-              Systems—this project evaluated how virtual simulation platforms and digital twins (such as Visual
-              Components) can reduce development time and costs compared to direct physical commissioning. Working
-              alongside the engineering team, I designed the Beckhoff TwinCAT 3 control system, created electrical panel
-              schematics in EPLAN, integrated KUKA KRC5 and ABB IRC5 robots via EtherCAT and DeviceNet gateways, and
-              established real-time OPC UA communication with Visual Components. Our team successfully completed the
-              cell, validated the digital twin concept, and reported the findings directly to the industrial partners,
-              proving that virtual commissioning effectively mitigates physical integration risks and accelerates
-              deployment
-              <br />
-              <a href="https://www.amrc.co.uk/research-partners/tier-1-members" target="_blank"
-                rel="noopener noreferrer"> &ndash; Read more on AMRC Industrial Partners</a>
-              <br />
-              <a href="https://www.visualcomponents.com/blog/an-introduction-to-virtual-commissioning/" target="_blank"
-                rel="noopener noreferrer"> &ndash; Read more on Virtual Commissioning</a>
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/digital-twin.gif" alt="Virtual Commissioning for Robotic Cells"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Digital Twin & Virtual Commissioning</span>
+                <span class="proj-year">2025</span>
+              </div>
+              <h3 class="proj-title">De-Risking Virtual Commissioning for Robotic Cells</h3>
+              <p class="proj-desc">Funded by AMRC tier-1 industrial members including Boeing, Airbus, and BAE
+                Systems—this project evaluated how virtual simulation platforms and digital twins (such as Visual
+                Components) can reduce development time and costs compared to direct physical commissioning. Working
+                alongside the engineering team, I designed the Beckhoff TwinCAT 3 control system, created electrical
+                panel
+                schematics in EPLAN, integrated KUKA KRC5 and ABB IRC5 robots via EtherCAT and DeviceNet gateways, and
+                established real-time OPC UA communication with Visual Components. Our team successfully completed the
+                cell, validated the digital twin concept, and reported the findings directly to the industrial partners,
+                proving that virtual commissioning effectively mitigates physical integration risks and accelerates
+                deployment
+                <br />
+                <a href="https://www.amrc.co.uk/research-partners/tier-1-members" target="_blank"
+                  rel="noopener noreferrer"> &ndash; Read more on AMRC Industrial Partners</a>
+                <br />
+                <a href="https://www.visualcomponents.com/blog/an-introduction-to-virtual-commissioning/"
+                  target="_blank" rel="noopener noreferrer"> &ndash; Read more on Virtual Commissioning</a>
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Virtual Commissioning for Robotic Cells">
                 View Details
@@ -1861,30 +1923,32 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 5 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images\EPSRC\EPSRC.png" alt="Autonomous Tool Anomaly Detection" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">AI & Machine Health Monitoring</span>
-              <span class="proj-year">2023</span>
             </div>
-            <h3 class="proj-title">Autonomous Tool Anomaly Detection</h3>
-            <p class="proj-desc">For a ~£1M EPSRC-funded research initiative in collaboration with industrial partners
-              including Mitsubishi Heavy Industries, the objective was to develop an autonomous diagnostic tool for
-              machine and cutting tool health. Working alongside the research team, I led experimental validation and
-              data modeling by conducting machining trials on a spindle test rig and CNC machines at the AMRC. I applied
-              novel Sensor Data Modelling and Model Frequency Analysis (SDMMFA), engineered multi-sensor features, and
-              built AI models for anomaly detection, successfully validating the technology and collaborating with
-              industrial partners to plan its real-world manufacturing deployment.
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images\EPSRC\EPSRC.png" alt="Autonomous Tool Anomaly Detection"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">AI & Machine Health Monitoring</span>
+                <span class="proj-year">2023</span>
+              </div>
+              <h3 class="proj-title">Autonomous Tool Anomaly Detection</h3>
+              <p class="proj-desc">For a ~£1M EPSRC-funded research initiative in collaboration with industrial partners
+                including Mitsubishi Heavy Industries, the objective was to develop an autonomous diagnostic tool for
+                machine and cutting tool health. Working alongside the research team, I led experimental validation and
+                data modeling by conducting machining trials on a spindle test rig and CNC machines at the AMRC. I
+                applied
+                novel Sensor Data Modelling and Model Frequency Analysis (SDMMFA), engineered multi-sensor features, and
+                built AI models for anomaly detection, successfully validating the technology and collaborating with
+                industrial partners to plan its real-world manufacturing deployment.
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Autonomous Tool Anomaly Detection">
                 View Details
@@ -1894,34 +1958,35 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-
-        </article>
-
-        <!-- Project 6 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/mitsubishi.gif" alt="Tool Condition Monitoring" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC & Mitsubishi">AMRC & Mitsubishi</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Predictive Maintenance & AI</span>
-              <span class="proj-year">2023</span>
             </div>
-            <h3 class="proj-title">Tool Condition Monitoring</h3>
-            <p class="proj-desc">In a targeted project with Mitsubishi Heavy Industries (MHI) to detect tool wear in
-              industrial milling applications, my team and I were tasked with developing real-time Tool Condition
-              Monitoring (TCM) technologies. Serving as Lead Engineer, I collaborated with the Process Monitoring &
-              Control team to define project requirements, design and execute extensive machining trials to capture
-              multi-sensor data, and engineer an NMFA-based diagnosis algorithm to detect flank wear. We successfully
-              validated the algorithm's performance for real-time application scenarios and provided MHI with technical
-              recommendations for future deployment.
-              <br />
-              <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
-                target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
-            </p>
-            <!--             <div class="proj-footer">
+
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/mitsubishi.gif" alt="Tool Condition Monitoring" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC & Mitsubishi">AMRC & Mitsubishi</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Predictive Maintenance & AI</span>
+                <span class="proj-year">2023</span>
+              </div>
+              <h3 class="proj-title">Tool Condition Monitoring</h3>
+              <p class="proj-desc">In a targeted project with Mitsubishi Heavy Industries (MHI) to detect tool wear in
+                industrial milling applications, my team and I were tasked with developing real-time Tool Condition
+                Monitoring (TCM) technologies. Serving as Lead Engineer, I collaborated with the Process Monitoring &
+                Control team to define project requirements, design and execute extensive machining trials to capture
+                multi-sensor data, and engineer an NMFA-based diagnosis algorithm to detect flank wear. We successfully
+                validated the algorithm's performance for real-time application scenarios and provided MHI with
+                technical
+                recommendations for future deployment.
+                <br />
+                <a href="https://gtr.ukri.org/projects?ref=10052752&pn=0&fetchSize=10&selectedSortableField=date&selectedSortOrder=DESC"
+                  target="_blank" rel="noopener noreferrer"> &ndash; Read more on this project</a>
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Tool Condition Monitoring">
                 View Details
@@ -1931,26 +1996,27 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 7 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/r3m.png" alt="Reconfigurable Robotics for Responsive Manufacture"
-              loading="lazy" />
-            <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">Robotics & Control Networks</span>
-              <span class="proj-year">2023</span>
             </div>
-            <h3 class="proj-title">Reconfigurable Robotics (R3M)</h3>
-            <p class="proj-desc">Engineered Beckhoff PLC architectures, built advanced EtherCAT networks, and integrated
-              KUKA KRC5 robots to deliver a highly flexible robotic control system.
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 7 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/r3m.png" alt="Reconfigurable Robotics for Responsive Manufacture"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: AMRC">AMRC</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">Robotics & Control Networks</span>
+                <span class="proj-year">2023</span>
+              </div>
+              <h3 class="proj-title">Reconfigurable Robotics (R3M)</h3>
+              <p class="proj-desc">Engineered Beckhoff PLC architectures, built advanced EtherCAT networks, and
+                integrated
+                KUKA KRC5 robots to deliver a highly flexible robotic control system.
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Reconfigurable Robotics (R3M)">
                 View Details
@@ -1960,32 +2026,33 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 8 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/water.gif" alt="Water Station Rehabilitation" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">PLC Automation</span>
-              <span class="proj-year">2019</span>
             </div>
-            <h3 class="proj-title">Water Station Rehabilitation</h3>
-            <p class="proj-desc">To modernise critical plant infrastructure at the Holcim cement plant located in Iraq,
-              my
-              team and I were responsible for overhauling and automating the facility's water treatment and
-              distribution station. Working with the plant engineering team, I engineered and commissioned a new
-              PLC-based control system using Allen-Bradley (Rockwell ControlLogix) controllers.
-              that interfaced with Siemens Simocode motor control units, VFDs and remote I/O panels over Profibus DP,
-              developed PID loops for the pumps and control the screens in plant SCADA system for the operators,
-              delivering a resilient automation system aligned with global efficiency and international safety
-              standards.
-            </p>
-            <!--            <div class="proj-footer">
+          </article>
+
+          <!-- Project 8 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/water.gif" alt="Water Station Rehabilitation" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">PLC Automation</span>
+                <span class="proj-year">2019</span>
+              </div>
+              <h3 class="proj-title">Water Station Rehabilitation</h3>
+              <p class="proj-desc">To modernise critical plant infrastructure at the Holcim cement plant located in
+                Iraq,
+                my
+                team and I were responsible for overhauling and automating the facility's water treatment and
+                distribution station. Working with the plant engineering team, I engineered and commissioned a new
+                PLC-based control system using Allen-Bradley (Rockwell ControlLogix) controllers.
+                that interfaced with Siemens Simocode motor control units, VFDs and remote I/O panels over Profibus DP,
+                developed PID loops for the pumps and control the screens in plant SCADA system for the operators,
+                delivering a resilient automation system aligned with global efficiency and international safety
+                standards.
+              </p>
+              <!--            <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Water Station Rehabilitation">
                 View Details
@@ -1995,29 +2062,30 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
-
-        <!-- Project 9 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images/hlc.gif" alt="Mill Master High-Level Control System" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">MPC and Advanced Control</span>
-              <span class="proj-year">2019</span>
             </div>
-            <h3 class="proj-title">Mill Master, High level Control System (HLC)</h3>
-            <p class="proj-desc">Aiming to maximize throughput and energy efficiency in cement milling operations, our
-              team sought to implement intelligent high-level control into the existing plant automation architecture. I
-              integrated a smart fuzzy logic control system developed in LabVIEW directly into the plant's main
-              Allen-Bradley PLCs using OPC communications for real-time data exchange. This integration successfully
-              enabled automated, real-time optimization of cement milling processes, stabilizing mill loads and
-              improving production consistency.
-            </p>
-            <!-- <div class="proj-footer">
+          </article>
+
+          <!-- Project 9 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images/hlc.gif" alt="Mill Master High-Level Control System" loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">MPC and Advanced Control</span>
+                <span class="proj-year">2019</span>
+              </div>
+              <h3 class="proj-title">Mill Master, High level Control System (HLC)</h3>
+              <p class="proj-desc">Aiming to maximize throughput and energy efficiency in cement milling operations, our
+                team sought to implement intelligent high-level control into the existing plant automation architecture.
+                I
+                integrated a smart fuzzy logic control system developed in LabVIEW directly into the plant's main
+                Allen-Bradley PLCs using OPC communications for real-time data exchange. This integration successfully
+                enabled automated, real-time optimization of cement milling processes, stabilizing mill loads and
+                improving production consistency.
+              </p>
+              <!-- <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Mill Master, High level Control System (HLC)">
                 View Details
@@ -2027,29 +2095,30 @@
                 </svg>
               </a>
             </div>-->
-          </div>
-        </article>
-
-        <!-- Project 10 -->
-        <article class="project-card" role="listitem" tabindex="0">
-          <div class="proj-img-box">
-            <img class="proj-img" src="images\concreate.png" alt="Concrete Strength Prediction System" loading="lazy" />
-            <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-meta">
-              <span class="proj-cat">AI Predictive Modeling</span>
-              <span class="proj-year">2019</span>
             </div>
-            <h3 class="proj-title">Concrete Strength Prediction System</h3>
-            <p class="proj-desc">To eliminate delays associated with traditional destructive compressive strength
-              testing, my team and I developed a system to estimate concrete quality dynamically during production.
-              Working alongside process engineers, I implemented AI-driven predictive models that evaluated real-time
-              operational and raw material parameters directly from the plant control system. This delivered accurate,
-              real-time compressive strength estimates, allowing operators to make immediate quality control
-              adjustments.
-            </p>
-            <!--             <div class="proj-footer">
+          </article>
+
+          <!-- Project 10 -->
+          <article class="project-card" role="listitem" tabindex="0">
+            <div class="proj-img-box">
+              <img class="proj-img" src="images\concreate.png" alt="Concrete Strength Prediction System"
+                loading="lazy" />
+              <div class="proj-pill" aria-label="Category: Holcim">Holcim</div>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span class="proj-cat">AI Predictive Modeling</span>
+                <span class="proj-year">2019</span>
+              </div>
+              <h3 class="proj-title">Concrete Strength Prediction System</h3>
+              <p class="proj-desc">To eliminate delays associated with traditional destructive compressive strength
+                testing, my team and I developed a system to estimate concrete quality dynamically during production.
+                Working alongside process engineers, I implemented AI-driven predictive models that evaluated real-time
+                operational and raw material parameters directly from the plant control system. This delivered accurate,
+                real-time compressive strength estimates, allowing operators to make immediate quality control
+                adjustments.
+              </p>
+              <!--             <div class="proj-footer">
               <a href="#contact" class="btn-ghost" style="padding:8px 15px;font-size:12px;border-radius:7px;gap:6px;"
                 aria-label="View details for Concrete Strength Prediction System">
                 View Details
@@ -2059,21 +2128,21 @@
                 </svg>
               </a>
             </div> -->
-          </div>
-        </article>
+            </div>
+          </article>
 
 
-      </div>
-
-      <div style="display:flex;align-items:center;gap:10px;margin-top:18px;" class="reveal" aria-hidden="true">
-        <div style="width:36px;height:1px;background:rgba(255,255,255,0.08);"></div>
-        <span
-          style="font-size:10.5px;color:#383838;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;">Scroll
-          to explore</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#383838" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </div>
+        </div>
+      </div> <!-- end .projects-slider -->
+    </div> <!-- end .projects-slider-wrap -->
+    <div style="display:flex;align-items:center;gap:10px;margin-top:18px;" class="reveal" aria-hidden="true">
+      <div style="width:36px;height:1px;background:rgba(255,255,255,0.08);"></div>
+      <span style="font-size:10.5px;color:#383838;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;">Scroll
+        to explore</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#383838" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </div>
     </div>
   </section>
 
@@ -2501,7 +2570,7 @@
     }
 
     // Automatically slide to the right every 3.2 seconds
-    setInterval(slideProjectsRight, 10000);
+    // setInterval(slideProjectsRight, 10000);
 
     if (projNextBtn) {
       projNextBtn.addEventListener('click', () => {
@@ -2527,7 +2596,31 @@
         setTimeout(() => isProjPaused = false, 3000);
       }, { passive: true });
     }
+    // ─── Mobile slider dots
+    const projDotsWrap = document.getElementById('proj-dots');
+    if (projSlider && projDotsWrap) {
+      const projCards = projSlider.querySelectorAll('.project-card');
 
+      projCards.forEach((card, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'proj-dot';
+        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        dot.addEventListener('click', () => {
+          projSlider.scrollTo({ left: i * getProjectStep(), behavior: 'smooth' });
+        });
+        projDotsWrap.appendChild(dot);
+      });
+
+      const projDots = projDotsWrap.querySelectorAll('.proj-dot');
+
+      function updateProjDots() {
+        const idx = Math.round(projSlider.scrollLeft / getProjectStep());
+        projDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+
+      projSlider.addEventListener('scroll', updateProjDots, { passive: true });
+      updateProjDots();
+    }
     // ─── Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver(entries => {
